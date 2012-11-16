@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/
+DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Student Page</title>
+	<!-- >link href="/university/style/default.css" rel="stylesheet" type="text/css"/-->
+</h:head>
+<h:body>
+	<p:dataTable id="studentTable" value="#{studentBean.students}"
+		paginator="true" paginatorPosition="bottom" rows="10" var="student">
+		<p:column id="studentId" headerText="Student ID"
+			sortBy="#{student.id}">
+			<h:outputText id="studentIdCell" value="#{student.id}" />
+		</p:column>
+		<p:column id="studentName" headerText="Student Name"
+			sortBy="#{student.name}">
+			<h:outputText id="studentNameCell" value="#{student.name}" />
+		</p:column>
+		<p:column id="studentBirth" headerText="Student Birth"
+			sortBy="#{student.birthDate}">
+			<h:outputText id="studentBirthCell" value="#{student.birthDate}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>
+		</p:column>
+	</p:dataTable>
+	<h:form id="studentCreationForm">
+		<h:panelGrid columns="2">
+			<p:outputLabel for="newStudentName">Student Name</p:outputLabel>
+			<p:inputText id="newStudentName"
+				value="#{studentBean.newStudentName}" required="true"></p:inputText>
+			<p:outputLabel for="studentBirth">Birth Date</p:outputLabel>
+			<p:calendar value="#{studentBean.newStudentBirth}" id="studentBirth"
+				required="true" showOn="button" pattern="dd/MM/yyyy" />
+			<p:commandButton id="newStudentButton" value="Create"
+				actionListener="#{studentBean.createStudent}"
+				update=":studentTable">
+			</p:commandButton>
+		</h:panelGrid>
+	</h:form>
+	<h:form id="studentSearchForm">
+		<h:panelGrid columns="2">
+			<p:outputLabel for="searchStudentName">Student Name</p:outputLabel>
+			<p:inputText id="searchStudentName"
+				value="#{studentBean.searchStudentName}" required="true"></p:inputText>
+			<p:commandButton id="searchStudentButton" value="Search"
+				actionListener="#{studentBean.searchStudentName}"
+				update=":studentSearchForm">
+			</p:commandButton>
+		</h:panelGrid>
+		<p:panel id="studentSearchResult" header="Search results">
+			<h:panelGrid columns="2">
+				<h:outputText value="ID:"></h:outputText>
+				<h:outputText value="#{studentBean.searchStudentResult.id}"></h:outputText>
+				<h:outputText value="Name:"></h:outputText>
+				<h:outputText value="#{studentBean.searchStudentResult.name}"></h:outputText>
+				<h:outputText value="Birth Date:"></h:outputText>
+				<h:outputText value="#{studentBean.searchStudentResult.birthDate}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

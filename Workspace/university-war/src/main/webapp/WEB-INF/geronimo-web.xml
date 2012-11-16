@@ -1,0 +1,31 @@
+<web-app xmlns="http://geronimo.apache.org/xml/ns/j2ee/web-2.0.1"
+	xmlns:naming="http://geronimo.apache.org/xml/ns/naming-1.2" xmlns:sec="http://geronimo.apache.org/xml/ns/security-2.0"
+	xmlns:sys="http://geronimo.apache.org/xml/ns/deployment-1.2">
+
+	<sys:environment>
+		<sys:dependencies>
+			<sys:dependency>
+				<sys:groupId>console.dbpool</sys:groupId>
+				<sys:artifactId>UniversityDSXA</sys:artifactId>
+			</sys:dependency>
+			<sys:dependency>
+				<sys:groupId>console.dbpool</sys:groupId>
+				<sys:artifactId>UniversityDS</sys:artifactId>
+			</sys:dependency>
+		</sys:dependencies>
+	</sys:environment>
+
+	<naming:resource-ref>
+		<naming:ref-name>jdbc/UniversityDSXA</naming:ref-name>
+		<naming:resource-link>UniversityDSXA</naming:resource-link>
+	</naming:resource-ref>
+	
+	<naming:resource-ref>
+		<naming:ref-name>jdbc/UniversityDS</naming:ref-name>
+		<naming:resource-link>UniversityDS</naming:resource-link>
+	</naming:resource-ref>
+
+</web-app>
+          
+
+
