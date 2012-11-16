@@ -8,6 +8,8 @@ Set-up instructions:
 
 3. Open eclipse and set the workspace to the checked-out "Workspace" folder
 
+4. In Eclipse go to File --> Import --> Maven Folder --> Existing Maven Projects
+
 Post on the NCCT forum if you need any help.
 
 Cheers.
