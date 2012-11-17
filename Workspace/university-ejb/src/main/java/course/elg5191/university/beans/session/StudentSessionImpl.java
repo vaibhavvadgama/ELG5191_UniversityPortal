@@ -1,10 +1,12 @@
 package course.elg5191.university.beans.session;
 
 import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
 import course.elg5191.university.beans.entity.Student;
 
 @Stateless(name = "StudentSession")
