@@ -7,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import course.elg5191.university.University;
-
 /**
  * @author jmccausl
  * @version 1.0
@@ -16,8 +14,8 @@ import course.elg5191.university.University;
  */
 
 @Entity
-public class StudentCourseRegistration {
-
+public class StudentCourseRegistration 
+{
 	//Declarations
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,7 +40,7 @@ public class StudentCourseRegistration {
 	//Public Accessors
 	public int getRegistrationId()
 	{
-		return 0;
+		return this.registrationId;
 	}
 
 	/**
@@ -51,12 +49,12 @@ public class StudentCourseRegistration {
 	 */
 	public void setRegistrationId(int registrationId)
 	{
-
+		this.registrationId = registrationId;
 	}
 
 	public int getOfferedCourseId()
 	{
-		return 0;
+		return this.offeredCourseId;
 	}
 
 	/**
@@ -65,12 +63,12 @@ public class StudentCourseRegistration {
 	 */
 	public void setOfferedCourseId(int offeredCourseId)
 	{
-
+		this.offeredCourseId = offeredCourseId;
 	}
 
 	public int getStudentId()
 	{
-		return 0;
+		return this.studentId;
 	}
 
 	/**
@@ -79,12 +77,12 @@ public class StudentCourseRegistration {
 	 */
 	public void setStudentId(int studentId)
 	{
-
+		this.studentId = studentId;
 	}
 
 	public int getApprovedUserId()
 	{
-		return 0;
+		return this.approvedUserId;
 	}
 
 	/**
@@ -93,12 +91,12 @@ public class StudentCourseRegistration {
 	 */
 	public void setApprovedUserId(int approvedUserId)
 	{
-
+		this.approvedUserId = approvedUserId;
 	}
 
 	public boolean getIsExempted()
 	{
-		return false;
+		return this.isExempted;
 	}
 
 	/**
@@ -107,12 +105,12 @@ public class StudentCourseRegistration {
 	 */
 	public void setIsExempted(boolean isExempted)
 	{
-
+		this.isExempted = isExempted;
 	}
 
 	public String getExemptionDetails()
 	{
-		return "";
+		return this.exemptionDetails;
 	}
 
 	/**
@@ -121,12 +119,12 @@ public class StudentCourseRegistration {
 	 */
 	public void setExemptionDetails(String exemptionDetails)
 	{
-
+		this.exemptionDetails = exemptionDetails;
 	}
 
 	public int getObtainedMarks()
 	{
-		return 0;
+		return this.obtainedMarks;
 	}
 
 	/**
@@ -135,11 +133,11 @@ public class StudentCourseRegistration {
 	 */
 	public void setObtainedMarks(int obtainedMarks)
 	{
-
+		this.obtainedMarks = obtainedMarks;
 	}
 
 	public String getObtainedGrade(){
-		return "";
+		return this.obtainedGrade;
 	}
 
 	/**
@@ -148,12 +146,12 @@ public class StudentCourseRegistration {
 	 */
 	public void setObtainedGrade(String obtainedGrade)
 	{
-
+		this.obtainedGrade = obtainedGrade;
 	}
 
 	public boolean getIsActive()
 	{
-		return false;
+		return this.isActive;
 	}
 
 	/**
@@ -162,12 +160,12 @@ public class StudentCourseRegistration {
 	 */
 	public void setIsActive(boolean isActive)
 	{
-
+		this.isActive = isActive;
 	}
 
 	public Date getCreatedDate()
 	{
-		return null;
+		return this.createdDate;
 	}
 
 	/**
@@ -176,12 +174,12 @@ public class StudentCourseRegistration {
 	 */
 	public void setCreatedDate(Date createdDate)
 	{
-
+		this.createdDate = createdDate;
 	}
 
 	public Date getModifiedDate()
 	{
-		return null;
+		return this.modifiedDate;
 	}
 
 	/**
@@ -190,7 +188,7 @@ public class StudentCourseRegistration {
 	 */
 	public void setModifiedDate(Date modifiedDate)
 	{
-
+		this.modifiedDate = modifiedDate;
 	}
 
 }
