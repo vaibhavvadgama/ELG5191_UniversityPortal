@@ -38,129 +38,142 @@ public class CourseOffering
 	//Public Accessors
 	public int getOfferingId()
 	{
-		return 0;
+		return this.offeringId;
 	}
 
 	public int getOfferedByProfId()
 	{
-		return 0;
+		return this.offeredByProfId;
 	}
 
 	public int getCreatedByAdminId()
 	{
-		return 0;
+		return this.createdByAdminId;
 	}
 
 	public int getSemester()
 	{
-		return 0;
+		return this.semester;
 	}
 
 	public Date getTime()
 	{
-		return null;
+		return this.time;
 	}
 
 	public String getLocation()
 	{
-		return "";
+		return this.location;
 	}
 
 	public int getMaxStudents()
 	{
-		return 0;
+		return this.maxStudents;
 	}
 
-	public boolean getIsActive(){
-		return false;
+	public boolean getIsActive()
+	{
+		return this.isActive;
 	}
 
-	public Date getCreatedDate(){
-		return null;
+	public Date getCreatedDate()
+	{
+		return this.createdDate;
 	}
 
-	public Date getModifiedDate(){
-		return null;
+	public Date getModifiedDate()
+	{
+		return this.modifiedDate;
 	}
 
 	/**
 	 * 
 	 * @param offeringId
 	 */
-	public void setOfferingId(int offeringId){
-
+	public void setOfferingId(int offeringId)
+	{
+		this.offeringId = offeringId;
 	}
 
 	/**
 	 * 
 	 * @param offeredByProfId
 	 */
-	public void setOfferedByProfId(int offeredByProfId){
-
+	public void setOfferedByProfId(int offeredByProfId)
+	{
+		this.offeredByProfId = offeredByProfId;
 	}
 
 	/**
 	 * 
 	 * @param createdByAdminId
 	 */
-	public void setCreatedByAdminId(int createdByAdminId){
-
+	public void setCreatedByAdminId(int createdByAdminId)
+	{
+		this.createdByAdminId = createdByAdminId;
 	}
 
 	/**
 	 * 
 	 * @param semester
 	 */
-	public void setSemester(int semester){
-
+	public void setSemester(int semester)
+	{
+		this.semester = semester;
 	}
 
 	/**
 	 * 
 	 * @param time
 	 */
-	public void setTime(Date time){
-
+	public void setTime(Date time)
+	{
+		this.time = time;
 	}
 
 	/**
 	 * 
 	 * @param location
 	 */
-	public void setLocation(String location){
-
+	public void setLocation(String location)
+	{
+		this.location = location;
 	}
 
 	/**
 	 * 
 	 * @param maxStudents
 	 */
-	public void setMaxStudents(int maxStudents){
-
+	public void setMaxStudents(int maxStudents)
+	{
+		this.maxStudents = maxStudents;
 	}
 
 	/**
 	 * 
 	 * @param isActive
 	 */
-	public void setIsActive(boolean isActive){
-
+	public void setIsActive(boolean isActive)
+	{
+		this.isActive = isActive;
 	}
 
 	/**
 	 * 
 	 * @param createdDate
 	 */
-	public void setCreatedDate(Date createdDate){
-
+	public void setCreatedDate(Date createdDate)
+	{
+		this.createdDate = createdDate;
 	}
 
 	/**
 	 * 
 	 * @param modifiedDate
 	 */
-	public void setModifiedDate(Date modifiedDate){
-
+	public void setModifiedDate(Date modifiedDate)
+	{
+		this.modifiedDate = modifiedDate;
 	}
 
 }
