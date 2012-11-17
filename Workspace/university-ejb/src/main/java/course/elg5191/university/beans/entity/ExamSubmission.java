@@ -125,7 +125,7 @@ public class ExamSubmission
 
 	public int getObtainedMarks()
 	{
-		return obtainedMarks = this.obtainedMarks;
+		return this.obtainedMarks;
 	}
 
 	/**
