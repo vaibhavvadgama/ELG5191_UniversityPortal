@@ -17,12 +17,11 @@ import course.elg5191.university.University.ExamType;
 @Entity
 public class Exam 
 {
-
 	//Declarations
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int examId;
-	private int toughtCourseId;
+	private int taughtCourseId;
 	private ExamType examType;
 	private ConductType conductType;
 	private int createdByUserId;
@@ -42,63 +41,75 @@ public class Exam
 	//Public Accessors
 	public int getExamId()
 	{
-		return 0;
+		return this.examId;
 	}
 
-	public int getTaughtCourseId(){
-		return 0;
+	public int getTaughtCourseId()
+	{
+		return this.taughtCourseId;
 	}
 
-	public ExamType getExamType(){
-		return null;
+	public ExamType getExamType()
+	{
+		return this.examType;
 	}
 
-	public ConductType getConductType(){
-		return null;
+	public ConductType getConductType()
+	{
+		return this.conductType;
 	}
 
-	public int getCreatedByUserId(){
-		return 0;
+	public int getCreatedByUserId()
+	{
+		return this.createdByUserId;
 	}
 
-	public Date getPublishedDateTime(){
-		return null;
+	public Date getPublishedDateTime()
+	{
+		return this.publishedDateTime;
 	}
 
-	public Date getDueDateTime(){
-		return null;
+	public Date getDueDateTime()
+	{
+		return this.dueDateTime;
 	}
 
-	public int getTotalMarks(){
-		return 0;
+	public int getTotalMarks()
+	{
+		return this.totalMarks;
 	}
 
-	public boolean getIsActive(){
-		return false;
+	public boolean getIsActive()
+	{
+		return this.isActive;
 	}
 
-	public Date getCreatedDate(){
-		return null;
+	public Date getCreatedDate()
+	{
+		return this.createdDate;
 	}
 
-	public Date getModifiedDate(){
-		return null;
+	public Date getModifiedDate()
+	{
+		return this.modifiedDate;
 	}
 
 	/**
 	 * 
 	 * @param examId
 	 */
-	public void setExamId(int examId){
-
+	public void setExamId(int examId)
+	{
+		this.examId = examId;
 	}
 
 	/**
 	 * 
 	 * @param taughtCourseId
 	 */
-	public void setTaughtCourseId(int taughtCourseId){
-
+	public void setTaughtCourseId(int taughtCourseId)
+	{
+		this.taughtCourseId = taughtCourseId;
 	}
 
 	/**
@@ -107,7 +118,7 @@ public class Exam
 	 */
 	public void setExamType(ExamType examType)
 	{
-
+		this.examType = examType;
 	}
 
 	/**
@@ -116,63 +127,70 @@ public class Exam
 	 */
 	public void setConductType(ConductType conductType)
 	{
-
+		this.conductType = conductType;
 	}
 
 	/**
 	 * 
 	 * @param createdByUserId
 	 */
-	public void setCreatedByUserId(int createdByUserId){
-
+	public void setCreatedByUserId(int createdByUserId)
+	{
+		this.createdByUserId = createdByUserId;
 	}
 
 	/**
 	 * 
 	 * @param publishedDateTime
 	 */
-	public void setPublishedDateTime(Date publishedDateTime){
-
+	public void setPublishedDateTime(Date publishedDateTime)
+	{
+		this.publishedDateTime = publishedDateTime;
 	}
 
 	/**
 	 * 
 	 * @param dueDateTime
 	 */
-	public void setDueDateTime(Date dueDateTime){
-
+	public void setDueDateTime(Date dueDateTime)
+	{
+		this.dueDateTime = dueDateTime;
 	}
 
 	/**
 	 * 
 	 * @param totalMarks
 	 */
-	public void setTotalMarks(int totalMarks){
-
+	public void setTotalMarks(int totalMarks)
+	{
+		this.totalMarks = totalMarks;
 	}
 
 	/**
 	 * 
 	 * @param isActive
 	 */
-	public void setIsActive(boolean isActive){
-
+	public void setIsActive(boolean isActive)
+	{
+		this.isActive = isActive;
 	}
 
 	/**
 	 * 
 	 * @param createdDate
 	 */
-	public void setCreatedDate(Date createdDate){
-
+	public void setCreatedDate(Date createdDate)
+	{
+		this.createdDate = createdDate;
 	}
 
 	/**
 	 * 
 	 * @param modifiedDate
 	 */
-	public void setModifiedDate(Date modifiedDate){
-
+	public void setModifiedDate(Date modifiedDate)
+	{
+		this.modifiedDate = modifiedDate;
 	}
 
 }
