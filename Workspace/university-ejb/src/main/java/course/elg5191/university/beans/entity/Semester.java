@@ -12,8 +12,9 @@ import javax.persistence.Id;
  * @created 16-Nov-2012 11:34:03 AM
  */
 @Entity
-public class Semester {
-
+public class Semester 
+{
+	//Declaration
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int semesterId;
@@ -23,16 +24,16 @@ public class Semester {
 	private Date endDate;
 	private Date dropDeadlineDate;
 
-	public Semester(){
+	//Constructor
+	public Semester()
+	{
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
-	public int getSemesterId(){
-		return 0;
+	//Public Accessors
+	public int getSemesterId()
+	{
+		return this.semesterId;
 	}
 
 	/**
@@ -40,68 +41,79 @@ public class Semester {
 	 * @param semesterId
 	 * @return 
 	 */
-	public void setSemesterId(int semesterId){
-
+	public void setSemesterId(int semesterId)
+	{
+		this.semesterId = semesterId;
 	}
 
-	public int getTerm(){
-		return 0;
+	public int getTerm()
+	{
+		return this.term;
 	}
 
 	/**
 	 * 
 	 * @param term
 	 */
-	public void setTerm(int term){
-
+	public void setTerm(int term)
+	{
+		this.term = term;
 	}
 
-	public int getYear(){
-		return 0;
+	public int getYear()
+	{
+		return this.year;
 	}
 
 	/**
 	 * 
 	 * @param year
 	 */
-	public void setYear(int year){
-
+	public void setYear(int year)
+	{
+		this.year = year;
 	}
 
-	public Date getBeginDate(){
-		return null;
+	public Date getBeginDate()
+	{
+		return this.beginDate;
 	}
 
 	/**
 	 * 
 	 * @param beginDate
 	 */
-	public void setBeginDate(Date beginDate){
-
+	public void setBeginDate(Date beginDate)
+	{
+		this.beginDate = beginDate;
 	}
 
-	public Date getEndDate(){
-		return null;
+	public Date getEndDate()
+	{
+		return this.endDate;
 	}
 
 	/**
 	 * 
 	 * @param endDate
 	 */
-	public void setEndDate(Date endDate){
-
+	public void setEndDate(Date endDate)
+	{
+		this.endDate = endDate;
 	}
 
-	public Date getDropDeadlineDate(){
-		return null;
+	public Date getDropDeadlineDate()
+	{
+		return this.dropDeadlineDate;
 	}
 
 	/**
 	 * 
 	 * @param dropDeadlineDate
 	 */
-	public void setDropDeadlineDate(Date dropDeadlineDate){
-
+	public void setDropDeadlineDate(Date dropDeadlineDate)
+	{
+		this.dropDeadlineDate = dropDeadlineDate;
 	}
 
 }
