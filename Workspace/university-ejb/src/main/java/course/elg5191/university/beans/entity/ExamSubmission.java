@@ -42,7 +42,7 @@ public class ExamSubmission
 	//Public Accessors
 	public int getSubmissionId()
 	{
-		return 0;
+		return this.submissionId;
 	}
 
 	/**
@@ -51,11 +51,12 @@ public class ExamSubmission
 	 */
 	public void setSubmissionId(int submissionId)
 	{
-
+		this.submissionId = submissionId;
 	}
 
-	public int getExamId(){
-		return 0;
+	public int getExamId()
+	{
+		return this.examId;
 	}
 
 	/**
@@ -64,11 +65,12 @@ public class ExamSubmission
 	 */
 	public void setExamId(int examId)
 	{
-
+		this.examId = examId;
 	}
 
-	public int getStudentId(){
-		return 0;
+	public int getStudentId()
+	{
+		return this.studentId;
 	}
 
 	/**
@@ -77,12 +79,12 @@ public class ExamSubmission
 	 */
 	public void setStudentId(int studentId)
 	{
-
+		this.studentId = studentId;
 	}
 
 	public Date getSubmitDateTime()
 	{
-		return null;
+		return this.submitDateTime;
 	}
 
 	/**
@@ -91,12 +93,12 @@ public class ExamSubmission
 	 */
 	public void setSubmitDateTime(Date submitDateTime)
 	{
-
+		this.submitDateTime = submitDateTime;
 	}
 
 	public String getComments()
 	{
-		return "";
+		return this.comments;
 	}
 
 	/**
@@ -105,12 +107,12 @@ public class ExamSubmission
 	 */
 	public void setComments(String comments)
 	{
-
+		this.comments = comments;
 	}
 
 	public ExamSubmissionStatus getStatus()
 	{
-		return null;
+		return this.status;
 	}
 
 	/**
@@ -119,12 +121,12 @@ public class ExamSubmission
 	 */
 	public void setStatus(ExamSubmissionStatus status)
 	{
-
+		this.status = status;
 	}
 
 	public int getObtainedMarks()
 	{
-		return 0;
+		return obtainedMarks = this.obtainedMarks;
 	}
 
 	/**
@@ -133,12 +135,12 @@ public class ExamSubmission
 	 */
 	public void setObtainedMarks(int obtainedMarks)
 	{
-
+		this.obtainedMarks = obtainedMarks;
 	}
 
 	public String getObtainedGrade()
 	{
-		return "";
+		return this.obtainedGrade;
 	}
 
 	/**
@@ -147,12 +149,12 @@ public class ExamSubmission
 	 */
 	public void setObtainedGrade(String obtainedGrade)
 	{
-
+		this.obtainedGrade = obtainedGrade;
 	}
 
 	public boolean getIsActive()
 	{
-		return false;
+		return this.isActive;
 	}
 
 	/**
@@ -161,12 +163,12 @@ public class ExamSubmission
 	 */
 	public void setIsActive(boolean isActive)
 	{
-
+		this.isActive = isActive;
 	}
 
 	public Date getCreatedDate()
 	{
-		return null;
+		return this.createdDate;
 	}
 
 	/**
@@ -175,12 +177,12 @@ public class ExamSubmission
 	 */
 	public void setCreatedDate(Date createdDate)
 	{
-
+		this.createdDate = createdDate;
 	}
 
 	public Date getModifiedDate()
 	{
-		return null;
+		return this.modifiedDate;
 	}
 
 	/**
@@ -189,7 +191,7 @@ public class ExamSubmission
 	 */
 	public void setModifiedDate(Date modifiedDate)
 	{
-
+		this.modifiedDate = modifiedDate;
 	}
 
 }
