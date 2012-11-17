@@ -23,8 +23,8 @@ public class CoursePrerequisite
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int prereqId;
 	private int courseId;
-	private PrereqType prereqtype;
-	private String prereqvalue;
+	private PrereqType prereqType;
+	private String prereqValue;
 	private boolean isActive;
 	private Date createdDate;
 	private Date modifiedDate;
@@ -36,49 +36,57 @@ public class CoursePrerequisite
 	}
 
 	//Public Accessors
-	public int getPrereqId(){
-		return 0;
+	public int getPrereqId()
+	{
+		return this.prereqId;
 	}
 
-	public int getCourseId(){
-		return 0;
+	public int getCourseId()
+	{
+		return this.courseId;
 	}
 
 	public PrereqType getPrereqType()
 	{	
-		return null;
+		return this.prereqType;
 	}
 
-	public void getPrereqValue(){
-
+	public String getPrereqValue()
+	{
+		return this.prereqValue;
 	}
 
-	public boolean getIsActive(){
-		return false;
+	public boolean getIsActive()
+	{
+		return this.isActive;
 	}
 
-	public Date getCreatedDate(){
-		return null;
+	public Date getCreatedDate()
+	{
+		return this.createdDate;
 	}
 
-	public Date getModifiedDate(){
-		return null;
+	public Date getModifiedDate()
+	{
+		return this.modifiedDate;
 	}
 
 	/**
 	 * 
 	 * @param prereqId
 	 */
-	public void setPrereqId(int prereqId){
-
+	public void setPrereqId(int prereqId)
+	{
+		this.prereqId = prereqId;
 	}
 
 	/**
 	 * 
 	 * @param courseId
 	 */
-	public void setCourseId(int courseId){
-
+	public void setCourseId(int courseId)
+	{
+		this.courseId = courseId;
 	}
 
 	/**
@@ -87,39 +95,43 @@ public class CoursePrerequisite
 	 */
 	public void setPrereqType(PrereqType prereqType)
 	{
-
+		this.prereqType = prereqType;
 	}
 
 	/**
 	 * 
 	 * @param prereqValue
 	 */
-	public void setPrereqValue(String prereqValue){
-
+	public void setPrereqValue(String prereqValue)
+	{
+		this.prereqValue = prereqValue;
 	}
 
 	/**
 	 * 
 	 * @param isActive
 	 */
-	public void setIsActive(boolean isActive){
-
+	public void setIsActive(boolean isActive)
+	{
+		this.isActive = isActive;
 	}
 
 	/**
 	 * 
 	 * @param createdDate
 	 */
-	public void setCreatedDate(Date createdDate){
-
+	public void setCreatedDate(Date createdDate)
+	{
+		this.createdDate = createdDate;
 	}
 
 	/**
 	 * 
 	 * @param modifiedDate
 	 */
-	public void setModifiedDate(Date modifiedDate){
-
+	public void setModifiedDate(Date modifiedDate)
+	{
+		this.modifiedDate = modifiedDate;
 	}
 
 }
