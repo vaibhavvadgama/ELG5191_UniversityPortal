@@ -7,8 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import course.elg5191.university.University;
-import course.elg5191.university.University.ExamSubmissionStatus;
+import course.elg5191.university.University.*;
 
 /**
  * @author jmccausl
