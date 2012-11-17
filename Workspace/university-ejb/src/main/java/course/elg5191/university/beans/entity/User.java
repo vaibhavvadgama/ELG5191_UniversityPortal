@@ -14,52 +14,60 @@ import javax.persistence.Id;
 @Entity
 public class User 
 {
-	
+	//Declarations
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private Date birthDate;
 	private String name;
 
+	//Constructor
 	public User()
 	{
 
 	}
 
-	public Date getBirthDate(){
-		return null;
+	//Public Accessors
+	public Date getBirthDate()
+	{
+		return this.birthDate;
 	}
 
-	public int getId(){
-		return 0;
+	public int getId()
+	{
+		return this.id;
 	}
 
-	public String getName(){
-		return "";
+	public String getName()
+	{
+		return this.name;
 	}
 
 	/**
 	 * 
 	 * @param birthDate
 	 */
-	public void setBirthDate(Date birthDate){
-
+	public void setBirthDate(Date birthDate)
+	{
+		this.birthDate = birthDate;
 	}
 
 	/**
 	 * 
 	 * @param id
 	 */
-	public void setId(int id){
-
+	public void setId(int id)
+	{
+		this.id = id;
 	}
 
 	/**
 	 * 
 	 * @param name
 	 */
-	public void setName(String name){
-
+	public void setName(String name)
+	{
+		this.name = name;
 	}
 
 }
