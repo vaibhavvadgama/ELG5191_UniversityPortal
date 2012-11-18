@@ -1,4 +1,12 @@
 package course.elg5191.university.beans.session;
+
+import java.util.List;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import course.elg5191.university.beans.entity.User;
 
 /**
@@ -6,25 +14,33 @@ import course.elg5191.university.beans.entity.User;
  * @version 1.0
  * @created 16-Nov-2012 11:34:03 AM
  */
-public class UserSessionImpl implements UserSession {
-
-	public UserSessionImpl(){
+@Stateless(name = "UserSession")
+public class UserSessionImpl implements UserSession 
+{
+	//Declarations
+	@PersistenceContext
+	EntityManager em;
+	
+	//Constructors
+	public UserSessionImpl()
+	{
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
+	//Public Methods
 	/**
 	 * 
 	 * @param user
 	 */
-	public void addUser(User user){
+	@Override
+	public void addUser(User user)
+	{
 
 	}
 
-	public List<User> getAllUsers(){
+	@Override
+	public List<User> getAllUsers()
+	{
 		return null;
 	}
 
@@ -32,7 +48,9 @@ public class UserSessionImpl implements UserSession {
 	 * 
 	 * @param name
 	 */
-	public User getUserByName(String name){
+	@Override
+	public User getUserByName(String name)
+	{
 		return null;
 	}
 
@@ -40,7 +58,9 @@ public class UserSessionImpl implements UserSession {
 	 * 
 	 * @param id
 	 */
-	public User getUserById(int id){
+	@Override
+	public User getUserById(int id)
+	{
 		return null;
 	}
 

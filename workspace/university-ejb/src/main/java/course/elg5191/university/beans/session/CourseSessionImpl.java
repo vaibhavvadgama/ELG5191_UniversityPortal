@@ -1,21 +1,36 @@
 package course.elg5191.university.beans.session;
 
+import java.util.List;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import course.elg5191.university.beans.entity.Course;
+
 /**
  * @author jmccausl
  * @version 1.0
  * @created 16-Nov-2012 11:34:02 AM
  */
-public class CourseSessionImpl implements CourseSession {
-
-	public CourseSessionImpl(){
+@Stateless(name = "CourseSession")
+public class CourseSessionImpl implements CourseSession 
+{
+	//Declarations
+	@PersistenceContext
+	EntityManager em;
+	
+	//Constructor
+	public CourseSessionImpl()
+	{
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
-	public List<Course> getAllCourses(){
+	//Public Method
+	@Override
+	public List<Course> getAllCourses()
+	{
 		return null;
 	}
 
@@ -23,7 +38,9 @@ public class CourseSessionImpl implements CourseSession {
 	 * 
 	 * @param courseId
 	 */
-	public Course getCourseByCourseId(int courseId){
+	@Override
+	public Course getCourseByCourseId(int courseId)
+	{
 		return null;
 	}
 
@@ -31,7 +48,9 @@ public class CourseSessionImpl implements CourseSession {
 	 * 
 	 * @param name
 	 */
-	public Course getCourseByName(String name){
+	@Override
+	public Course getCourseByName(String name)
+	{
 		return null;
 	}
 
@@ -39,7 +58,9 @@ public class CourseSessionImpl implements CourseSession {
 	 * 
 	 * @param course
 	 */
-	public void addCourse(Course course){
+	@Override
+	public void addCourse(Course course)
+	{
 
 	}
 
@@ -47,7 +68,9 @@ public class CourseSessionImpl implements CourseSession {
 	 * 
 	 * @param departmentCode
 	 */
-	public List<Course> getAllCourseByDepartmentCode(String departmentCode){
+	@Override
+	public List<Course> getAllCourseByDepartmentCode(String departmentCode)
+	{
 		return null;
 	}
 

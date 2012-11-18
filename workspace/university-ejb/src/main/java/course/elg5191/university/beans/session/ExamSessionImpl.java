@@ -1,25 +1,38 @@
 package course.elg5191.university.beans.session;
 
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import course.elg5191.university.beans.entity.Exam;
+
 /**
  * @author jmccausl
  * @version 1.0
  * @created 16-Nov-2012 11:34:02 AM
  */
-public class ExamSessionImpl implements ExamSession {
-
-	public ExamSessionImpl(){
+@Stateless(name = "ExamSession")
+public class ExamSessionImpl implements ExamSession 
+{
+	//Declarations
+	@PersistenceContext
+	EntityManager em;
+	
+	//Constructor
+	public ExamSessionImpl()
+	{
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
+	//Public Methods
 	/**
 	 * 
 	 * @param examId
 	 */
-	public Exam getExamByExamId(int examId){
+	@Override
+	public Exam getExamByExamId(int examId)
+	{
 		return null;
 	}
 
@@ -27,7 +40,9 @@ public class ExamSessionImpl implements ExamSession {
 	 * 
 	 * @param exam
 	 */
-	public void addExam(Exam exam){
+	@Override
+	public void addExam(Exam exam)
+	{
 
 	}
 

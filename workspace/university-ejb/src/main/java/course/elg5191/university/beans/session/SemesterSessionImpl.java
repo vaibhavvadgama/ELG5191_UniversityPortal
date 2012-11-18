@@ -1,25 +1,40 @@
 package course.elg5191.university.beans.session;
 
+import java.util.Date;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import course.elg5191.university.beans.entity.Semester;
+
 /**
  * @author jmccausl
  * @version 1.0
  * @created 16-Nov-2012 11:34:03 AM
  */
-public class SemesterSessionImpl implements SemesterSession {
-
-	public SemesterSessionImpl(){
+@Stateless(name = "SemesterSession")
+public class SemesterSessionImpl implements SemesterSession 
+{
+	//Declarations
+	@PersistenceContext
+	EntityManager em;
+	
+	//Constructors
+	public SemesterSessionImpl()
+	{
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
+	//Public Methods
 	/**
 	 * 
 	 * @param semesterId
 	 */
-	public Semester getSemesterBySemesterId(int semesterId){
+	@Override
+	public Semester getSemesterBySemesterId(int semesterId)
+	{
 		return null;
 	}
 
@@ -27,7 +42,9 @@ public class SemesterSessionImpl implements SemesterSession {
 	 * 
 	 * @param semester
 	 */
-	public void addSemester(Semester semester){
+	@Override
+	public void addSemester(Semester semester)
+	{
 
 	}
 
@@ -35,7 +52,9 @@ public class SemesterSessionImpl implements SemesterSession {
 	 * 
 	 * @param beginDate
 	 */
-	public Semester getSemesterByBeginDate(Date beginDate){
+	@Override
+	public Semester getSemesterByBeginDate(Date beginDate)
+	{
 		return null;
 	}
 
@@ -43,7 +62,9 @@ public class SemesterSessionImpl implements SemesterSession {
 	 * 
 	 * @param endDate
 	 */
-	public Semester getSemesterByEndDate(Date endDate){
+	@Override
+	public Semester getSemesterByEndDate(Date endDate)
+	{
 		return null;
 	}
 
