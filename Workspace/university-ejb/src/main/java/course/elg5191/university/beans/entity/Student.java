@@ -15,6 +15,7 @@ public class Student {
 	private Date birthDate;
 
 	public int getId() {
+		System.out.println("Entity Bean: Student: getId");
 		return id;
 	}
 

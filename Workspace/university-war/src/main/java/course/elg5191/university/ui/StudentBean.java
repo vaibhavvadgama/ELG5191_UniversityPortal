@@ -53,8 +53,10 @@ public class StudentBean {
 		this.newStudentName = newStudentName;
 	}
 
-	public List<Student> getStudents() {
+	public List<Student> getStudents() 
+	{
 		return studentSess.getAllStudents();
+		//return null;
 	}
 
 	public void createStudent(ActionEvent event) {

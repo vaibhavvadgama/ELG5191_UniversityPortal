@@ -10,20 +10,29 @@ import javax.persistence.Query;
 import course.elg5191.university.beans.entity.Student;
 
 @Stateless(name = "StudentSession")
-public class StudentSessionImpl implements StudentSession {
+public class StudentSessionImpl implements StudentSession 
+{
+	//Declarations
 	@PersistenceContext
 	EntityManager em;
 
+	//Public Methods
 	@Override
-	public List<Student> getAllStudents() {
+	public List<Student> getAllStudents() 
+	{
+		System.out.println("StudentSessionImpl:: getAllStudents()");
+		
 		Query query = em.createQuery("select s from Student s");
+		System.out.println("StudentSessionImpl:: getAllStudents():: createQuery");
+		System.out.println("StudentSessionImpl:: getAllStudents():: returning results...");
 		@SuppressWarnings("unchecked")
 		List<Student> allStudents = query.getResultList();
 		return allStudents;
 	}
 
 	@Override
-	public Student getStudentByName(String name) {
+	public Student getStudentByName(String name) 
+	{
 		Query query = em
 				.createQuery("select s from Student s where s.name=:name");
 		query = query.setParameter("name", name);
@@ -39,7 +48,8 @@ public class StudentSessionImpl implements StudentSession {
 	}
 
 	@Override
-	public void addStudent(Student student) {
+	public void addStudent(Student student) 
+	{
 		em.persist(student);
 	}
 }
