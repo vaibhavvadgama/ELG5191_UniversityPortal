@@ -2,7 +2,7 @@ package course.elg5191.university.beans.session;
 
 import java.util.List;
 import javax.ejb.Local;
-import course.elg5191.university.beans.entity.User;
+import course.elg5191.university.beans.entity.SystemUser;
 
 /**
  * @author jmccausl
@@ -11,26 +11,26 @@ import course.elg5191.university.beans.entity.User;
  */
 
 @Local
-public interface UserSession {
+public interface SystemUserSession {
 
 	/**
 	 * 
 	 * @param user
 	 */
-	public void addUser(User user);
+	public void addUser(SystemUser user);
 
-	public List<User> getAllUsers();
+	public List<SystemUser> getAllUsers();
 
 	/**
 	 * 
 	 * @param name
 	 */
-	public User getUserByName(String name);
+	public SystemUser getUserByName(String name);
 
 	/**
 	 * 
 	 * @param id
 	 */
-	public User getUserById(int id);
+	public SystemUser getUserById(int id);
 
 }

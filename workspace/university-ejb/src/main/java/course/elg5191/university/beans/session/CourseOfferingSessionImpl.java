@@ -21,13 +21,8 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 	//Declarations
 	@PersistenceContext
 	EntityManager em;
-	
-	//Constructor
-	public CourseOfferingSessionImpl()
-	{
 
-	}
-
+	//Public Methods
 	/**
 	 * 
 	 * @param offeringId

@@ -21,12 +21,6 @@ public class CourseSessionImpl implements CourseSession
 	@PersistenceContext
 	EntityManager em;
 	
-	//Constructor
-	public CourseSessionImpl()
-	{
-
-	}
-
 	//Public Method
 	@Override
 	public List<Course> getAllCourses()

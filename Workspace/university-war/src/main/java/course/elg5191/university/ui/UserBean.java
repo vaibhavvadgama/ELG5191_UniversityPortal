@@ -6,8 +6,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
 
-import course.elg5191.university.beans.session.UserSession;
-import course.elg5191.university.beans.entity.User;
+import course.elg5191.university.beans.session.SystemUserSession;
+import course.elg5191.university.beans.entity.SystemUser;
 
 /**
  * @author jmccausl
@@ -20,8 +20,8 @@ public class UserBean
 {
 	//Declarations
 	@EJB
-	private UserSession userSess;
-	private User user;
+	private SystemUserSession userSess;
+	private SystemUser user;
 	
 	//Constructor
 	public UserBean()

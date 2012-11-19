@@ -21,12 +21,6 @@ public class SemesterSessionImpl implements SemesterSession
 	@PersistenceContext
 	EntityManager em;
 	
-	//Constructors
-	public SemesterSessionImpl()
-	{
-
-	}
-
 	//Public Methods
 	/**
 	 * 

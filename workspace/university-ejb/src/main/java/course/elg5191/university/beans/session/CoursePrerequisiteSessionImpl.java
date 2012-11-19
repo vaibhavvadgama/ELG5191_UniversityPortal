@@ -21,12 +21,6 @@ public class CoursePrerequisiteSessionImpl implements CoursePrerequisiteSession
 	@PersistenceContext
 	EntityManager em;
 	
-	//Constructor
-	public CoursePrerequisiteSessionImpl()
-	{
-
-	}
-
 	//Public Methods
 	/**
 	 * 

@@ -18,12 +18,6 @@ public class ExamSessionImpl implements ExamSession
 	//Declarations
 	@PersistenceContext
 	EntityManager em;
-	
-	//Constructor
-	public ExamSessionImpl()
-	{
-
-	}
 
 	//Public Methods
 	/**

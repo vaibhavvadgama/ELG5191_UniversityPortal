@@ -12,7 +12,7 @@ import javax.persistence.Id;
  * @created 16-Nov-2012 11:34:03 AM
  */
 @Entity
-public class User 
+public class SystemUser 
 {
 	//Declarations
 	@Id
@@ -20,12 +20,6 @@ public class User
 	private int id;
 	private Date birthDate;
 	private String name;
-
-	//Constructor
-	public User()
-	{
-
-	}
 
 	//Public Accessors
 	public Date getBirthDate()

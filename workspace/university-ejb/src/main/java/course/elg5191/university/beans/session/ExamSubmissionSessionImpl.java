@@ -19,12 +19,6 @@ public class ExamSubmissionSessionImpl implements ExamSubmissionSession
 	@PersistenceContext
 	EntityManager em;
 	
-	//Constructor
-	public ExamSubmissionSessionImpl()
-	{
-
-	}
-
 	//Public Methods
 	/**
 	 * 

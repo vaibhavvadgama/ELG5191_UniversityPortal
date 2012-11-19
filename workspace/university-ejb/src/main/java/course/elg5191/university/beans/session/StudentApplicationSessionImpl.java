@@ -18,12 +18,6 @@ public class StudentApplicationSessionImpl implements StudentApplicationSession
 	//Declarations
 	@PersistenceContext
 	EntityManager em;
-	
-	//Constructor
-	public StudentApplicationSessionImpl()
-	{
-
-	}
 
 	//Public Methods
 	/**

@@ -19,12 +19,6 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 	@PersistenceContext
 	EntityManager em;
 	
-	//Constructor
-	public StudentCourseRegistrationSessionImpl()
-	{
-
-	}
-
 	//Public Methods
 	/**
 	 * 

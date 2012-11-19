@@ -27,13 +27,6 @@ public class CourseOffering
 	private boolean isActive;
 	private Date createdDate;
 	private Date modifiedDate;
-
-	//Constructor
-	public CourseOffering()
-	{
-
-	}
-
 	
 	//Public Accessors
 	public int getOfferingId()
