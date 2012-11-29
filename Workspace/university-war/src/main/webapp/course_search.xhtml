@@ -3,57 +3,25 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-<head>
+<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 <title>Course Search</title>
-</head>
-<body>
 
+</h:head>
+<body>
+<h1>Course Search</h1>
 <h:form>
-<table>
-<tr>
-<td>
-    <h:outputLabel value="Department name:" for="departmentList" />
-    </td>
-    <td>
-    <h:selectManyListbox id="departmentList" value="#{courseBean.department}">
-    	<f:selectItems value="#{courseBean.departments}" var="f" 
-    	itemlabel="#{f}" itemvalue="#{f}"/>
-    </h:selectManyListbox> <br/>
-    </td>
-    </tr>
-    <TR>
-    <td>
-    <h:outputLabel value="Course Number:" for="courseBean.courseNumber" />
-    </td>
-    <td>
-    <h:inputText value="#{courseBean.courseNumber}" id="courseNumber"/> <br/>
-    </td></TR>
+
+	<p:selectCheckboxMenu value="#{courseBean.department}" label="Departments" filter="true" filterText="Filter" filterMatchMode="startsWith" panelStyle="width:220px">  
+        <f:selectItems value="#{courseBean.departments}" />  
+    </p:selectCheckboxMenu>
     
-    <tr>
-    <td>
-    <h:outputLabel value="Semester:" />
-    </td>
-    <td>
-    
-    <h:selectManyListbox id="semesterList" value="#{semester}">
-    	<f:selectItems value="#{courseBean.semesters}" var="f" 
-    	itemlabel="#{f}" itemvalue="#{f}"/>
-    </h:selectManyListbox> <br/>
-    </td>
-    </tr>
-    <tr>
-    <td>
-    
-    <h:outputLabel value="Professor:" />
-    </td>
-    <td>
-    
-    <h:inputText value="#{courseBean.professor}" id="professor" /> <br/>
-</td>
-</tr>
-</table>
-<h:commandButton value="Clear"/>
+    <p:selectCheckboxMenu value="#{courseBean.semester}" label="Semesters" filter="true" filterText="Filter" filterMatchMode="startsWith" panelStyle="width:220px">  
+        <f:selectItems value="#{courseBean.semesters}" />  
+    </p:selectCheckboxMenu>
+
+<p:separator style="margin-bottom:10px"/>  
+
 <p:commandButton value="Search" actionListener="#{courseBean.searchCourse}"/>
 </h:form>
 

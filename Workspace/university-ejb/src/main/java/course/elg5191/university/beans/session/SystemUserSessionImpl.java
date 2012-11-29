@@ -57,5 +57,17 @@ public class SystemUserSessionImpl implements SystemUserSession
 	{
 		return null;
 	}
+	
+	@Override
+	public List<SystemUser> getAllProfs()
+	{
+		Query query = em.createQuery("select c from SystemUser c where c.");
+		
+		List<SystemUser> allDepts = query.getResultList();
+		
+		System.out.println(allDepts.get(0));
+		
+		return allDepts;
+	}
 
 }

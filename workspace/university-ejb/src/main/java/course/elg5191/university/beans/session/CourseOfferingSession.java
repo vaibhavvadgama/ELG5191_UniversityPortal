@@ -29,5 +29,7 @@ public interface CourseOfferingSession {
 	 * @param semester
 	 */
 	public List<CourseOffering> getAllCourseOfferingBySemester(int semester);
+	
+	public List<CourseOffering> getCourseOfferingByCourseId(int courseId);
 
 }

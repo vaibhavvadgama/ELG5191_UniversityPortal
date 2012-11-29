@@ -10,5 +10,6 @@
   	<module>../university-ear</module>
   	<module>../university-ejb</module>
   	<module>../university-war</module>
+  	<module>?</module>
   </modules>
 </project>

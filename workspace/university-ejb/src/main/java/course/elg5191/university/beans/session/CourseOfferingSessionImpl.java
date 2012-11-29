@@ -68,5 +68,17 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 		return courseOfferings;
 		
 	}
+	
+	@Override
+	public List<CourseOffering> getCourseOfferingByCourseId(int courseId)
+	{
+		Query query = em.createQuery("select s from CourseOffering s where s.courseId =:courseId");
+		query = query.setParameter("courseId",courseId);
+		
+		@SuppressWarnings("unchecked")
+		List<CourseOffering> courseOfferings = query.getResultList();
+		
+		return courseOfferings;
+	}
 
 }

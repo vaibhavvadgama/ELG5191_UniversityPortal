@@ -32,5 +32,7 @@ public interface SystemUserSession {
 	 * @param id
 	 */
 	public SystemUser getUserById(int id);
+	
+	public List<SystemUser> getAllProfs();
 
 }

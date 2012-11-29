@@ -2,7 +2,9 @@ package course.elg5191.university.ui;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -12,6 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import course.elg5191.university.beans.entity.Course;
+import course.elg5191.university.beans.entity.CourseOffering;
 import course.elg5191.university.beans.session.*;
 
 /**
@@ -23,48 +26,52 @@ import course.elg5191.university.beans.session.*;
 @SessionScoped
 public class CourseBean 
 {
+	
 	//Declarations
 	@EJB
 	private CourseSession courseSess;
 	@EJB
+	private CourseOfferingSession courseOfferingSess;
+	@EJB
 	private SemesterSession semSess;
+	@EJB 
+	private SystemUserSession userSess;
 	
 	private String[] department;
-	private String courseNumber;
-	private String semester;
-	private String professor;
-	private ArrayList<Course> searchResults;
+	private String[] semester;
+	private String[] professor;
+	private ArrayList<CourseOffering> searchResults;
 	
 	
-	public ArrayList<Course> getSearchResults() {
+	public ArrayList<CourseOffering> getSearchResults() {
 		return searchResults;
 	}
 
-	public void setSearchResults(ArrayList<Course> searchResults) {
+	public void setSearchResults(ArrayList<CourseOffering> searchResults) {
 		this.searchResults = searchResults;
 	}
 
-	public String getSemester() {
+	public String[] getSemester() {
 		return semester;
 	}
 
-	public void setSemester(String semester) {
+	public void setSemester(String[] semester) {
 		this.semester = semester;
 	}
 
-	public String getProfessor() {
+	public String[] getProfessor() {
 		return professor;
 	}
 
-	public void setProfessor(String professor) {
+	public void setProfessor(String[] professor) {
 		this.professor = professor;
 	}
 
 	//Constructor
 	public CourseBean()
 	{
-		searchResults = new ArrayList<Course>();
-	}
+		searchResults = new ArrayList<CourseOffering>();
+	} 
 	
 	//Public Methods
 	public List<String> getDepartments()
@@ -76,14 +83,7 @@ public class CourseBean
 	{
 		return semSess.getAllSemesters();
 	}
-	
-	
-	
-	
-	public String getCourseNumber()
-	{
-		return courseNumber;
-	}
+
 	
 	public String[] getDepartment()
 	{
@@ -95,26 +95,35 @@ public class CourseBean
 		department = value;
 	}
 	
-	public void setCourseNumber(String value)
-	{
-		courseNumber = value;
-	}
-	
-	
 	
 	public void searchCourse(ActionEvent event)
 	{
 		searchResults.clear();
-
+		
+		ArrayList<Course> courseResults = new ArrayList<Course>();
+		ArrayList<CourseOffering> courseOfferingResults = new ArrayList<CourseOffering>();
 		if (department.length > 0)
 		{	
 			for(String dep : department)
 			{
-				searchResults.addAll( courseSess.getAllCourseByDepartmentCode(dep));
+				courseResults.addAll( courseSess.getAllCourseByDepartmentCode(dep));
+			}
+			
+			for(Course course: courseResults)
+			{
+				courseOfferingResults.addAll(courseOfferingSess.getCourseOfferingByCourseId(course.getCourseId()));
 			}
 
 		}
 		
+//		if (semester.length >0)
+//		{
+//			for(String sem :semester)
+//			{
+//				courseOfferingSess.getAllCourseOfferingBySemester(semester)
+//			}
+//		}
+		searchResults.addAll(courseOfferingResults);
 		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 		try {
 			ec.redirect("CourseSearchResult.xhtml");

@@ -3,22 +3,23 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-<head>
+<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-<title>Insert title here</title>
-</head>
+<title>Course Search Results</title>
+</h:head>
 <body>
-search result
+<H1>Search Results</H1>
 
 <p:dataTable id="courseTable" value="#{courseBean.searchResults}"
-		paginator="true" paginatorPosition="bottom" rows="10" var="course">
-		<p:column id="courseId" headerText="COURSE ID"
-			sortBy="#{course.courseId}">
-			<h:outputText id="courseIdCell" value="#{course.courseId}" />
+		paginator="true" paginatorPosition="bottom" rows="10" var="courseOffering">
+		<p:column id="courseOfferingId" headerText="Course Offering Id"
+			sortBy="#{courseOffering.offeringId}">
+			<h:outputText id="courseOfferingIdCell" value="#{courseOffering.offeringId}" />
 		</p:column>
-		<p:column id="courseName" headerText="Course Name"
-			sortBy="#{course.courseName}">
-			<h:outputText id="courseNameCell" value="#{course.courseName}" />
+		
+		<p:column id="location" headerText="Location"
+			sortBy="#{courseOffering.location}">
+			<h:outputText id="locationCell" value="#{courseOffering.location}" />
 		</p:column>
 		
 		<!-- p:column id="studentBirth" headerText="Student Birth"
