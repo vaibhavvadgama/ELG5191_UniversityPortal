@@ -1,0 +1,13 @@
+insert into app.semester values(1, null, null, null, 1, 2012);
+
+insert into app.course values(1,'1','test','5191',2,null,'elg','test', 1,null);
+insert into app.course values(2,'1','test','5190',2,null,'elg','test', 1,null);
+insert into app.course values(3,'1','test','1000',2,null,'phy','test', 1,null);
+
+insert into app.courseprerequisite values(1,1,null,1,null,1,'2');
+
+insert into app.systemuser values(1,null,'Joe');
+
+insert into app.courseoffering values(1,1,1,null,1,'site',20,null,1,1,null);
+insert into app.courseoffering values(2,1,1,null,1,'site',20,null,1,1,null);
+
