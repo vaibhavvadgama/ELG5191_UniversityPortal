@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+search result
+
+<p:dataTable id="courseTable" value="#{courseBean.searchResults}"
+		paginator="true" paginatorPosition="bottom" rows="10" var="course">
+		<p:column id="courseId" headerText="COURSE ID"
+			sortBy="#{course.courseId}">
+			<h:outputText id="courseIdCell" value="#{course.courseId}" />
+		</p:column>
+		<p:column id="courseName" headerText="Course Name"
+			sortBy="#{course.courseName}">
+			<h:outputText id="courseNameCell" value="#{course.courseName}" />
+		</p:column>
+		
+		<!-- p:column id="studentBirth" headerText="Student Birth"
+			sortBy="#{student.birthDate}">
+			<h:outputText id="studentBirthCell" value="#{student.birthDate}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>
+		</p:column-->
+	</p:dataTable>
+</body>
+</html>

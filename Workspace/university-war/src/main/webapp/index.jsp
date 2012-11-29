@@ -5,6 +5,6 @@
 <html>
 <head> </head>
 <body>
-<jsp:forward page="/students.xhtml" />
+<jsp:forward page="/course_search.xhtml" />
 </body>
 </html>

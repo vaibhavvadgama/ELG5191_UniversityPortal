@@ -1,6 +1,8 @@
 package course.elg5191.university.beans.session;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.ejb.Local;
 import course.elg5191.university.beans.entity.Semester;
 
@@ -36,5 +38,7 @@ public interface SemesterSession {
 	 * @param endDate
 	 */
 	public Semester getSemesterByEndDate(Date endDate);
+	
+	public List<String> getAllSemesters();
 
 }

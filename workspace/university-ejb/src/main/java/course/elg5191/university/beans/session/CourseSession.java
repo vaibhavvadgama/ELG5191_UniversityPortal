@@ -14,6 +14,8 @@ import course.elg5191.university.beans.entity.Course;
 public interface CourseSession {
 
 	public List<Course> getAllCourses();
+	
+	public List<String> getAllDepartments();
 
 	/**
 	 * 
@@ -38,5 +40,5 @@ public interface CourseSession {
 	 * @param departmentCode
 	 */
 	public List<Course> getAllCourseByDepartmentCode(String departmentCode);
-
+	
 }

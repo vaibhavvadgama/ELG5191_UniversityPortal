@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import course.elg5191.university.beans.entity.Course;
+import course.elg5191.university.beans.entity.Student;
 
 /**
  * @author jmccausl
@@ -27,6 +28,22 @@ public class CourseSessionImpl implements CourseSession
 	{
 		return null;
 	}
+	
+	@Override
+	public List<String> getAllDepartments()
+	{
+		System.out.println("CourseSession:: getAllDepartments()");
+		
+		Query query = em.createQuery("select distinct c.departmentCode from Course c");
+		
+		List<String> allDepts = query.getResultList();
+		
+		System.out.println(allDepts.get(0));
+		
+		return allDepts;
+	}
+	
+	
 
 	/**
 	 * 
@@ -65,7 +82,14 @@ public class CourseSessionImpl implements CourseSession
 	@Override
 	public List<Course> getAllCourseByDepartmentCode(String departmentCode)
 	{
-		return null;
+		
+		Query query = em.createQuery("select c from Course c where c.departmentCode = '" + departmentCode+"'");
+		
+		List<Course> allDepts = query.getResultList();
+		
+		System.out.println(allDepts.get(0));
+		
+		return allDepts;
 	}
 
 }

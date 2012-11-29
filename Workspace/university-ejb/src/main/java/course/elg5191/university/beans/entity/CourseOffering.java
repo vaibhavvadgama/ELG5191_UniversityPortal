@@ -27,8 +27,14 @@ public class CourseOffering
 	private boolean isActive;
 	private Date createdDate;
 	private Date modifiedDate;
+	private int courseId;
 	
 	//Public Accessors
+	public int getCourseId()
+	{
+		return this.courseId;
+	}
+	
 	public int getOfferingId()
 	{
 		return this.offeringId;
@@ -122,6 +128,15 @@ public class CourseOffering
 	public void setTime(Date time)
 	{
 		this.time = time;
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 */
+	public void setCourseId(int id)
+	{
+		this.courseId = id;
 	}
 
 	/**

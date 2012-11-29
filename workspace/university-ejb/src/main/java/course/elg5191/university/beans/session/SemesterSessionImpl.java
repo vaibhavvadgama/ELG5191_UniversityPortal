@@ -1,6 +1,8 @@
 package course.elg5191.university.beans.session;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -60,6 +62,25 @@ public class SemesterSessionImpl implements SemesterSession
 	public Semester getSemesterByEndDate(Date endDate)
 	{
 		return null;
+	}
+	
+	@Override
+	public List<String> getAllSemesters()
+	{
+		List<String> result = new ArrayList<String>();
+		Query query = em.createQuery("select s from Semester s");
+		
+		List<Semester> semesters = query.getResultList();
+		
+		for(int i =0; i< semesters.size(); i++)
+		{
+			Semester s = semesters.get(i);
+			
+			result.add(s.getTerm() + " - " + s.getYear() );
+		}
+	
+		
+		return result;
 	}
 
 }
