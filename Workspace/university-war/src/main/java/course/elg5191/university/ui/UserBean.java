@@ -1,6 +1,5 @@
 package course.elg5191.university.ui;
 
-
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -23,11 +22,6 @@ public class UserBean
 	private SystemUserSession userSess;
 	private SystemUser user;
 	
-	//Constructor
-	public UserBean()
-	{
-
-	}
-
 	//Public Methods
+	
 }
