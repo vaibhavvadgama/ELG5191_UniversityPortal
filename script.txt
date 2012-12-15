@@ -8,6 +8,6 @@ insert into app.courseprerequisite values(1,1,null,1,null,1,'2');
 
 insert into app.systemuser values(1,null,'Joe');
 
-insert into app.courseoffering values(1,1,1,null,1,'site',20,null,1,1,null);
-insert into app.courseoffering values(2,1,1,null,1,'site',20,null,1,1,null);
+insert into app.courseoffering values(1,1,null,null,'site',20,null,1,1,null,1);
+insert into app.courseoffering values(2,1,null,null,'site',20,null,1,1,null,1);
 

@@ -33,6 +33,6 @@ public interface SystemUserSession {
 	 */
 	public SystemUser getUserById(int id);
 	
-	public List<SystemUser> getAllProfs();
+	public List<String> getAllProfs();
 
 }
