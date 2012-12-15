@@ -21,7 +21,21 @@ public class UserBean
 	@EJB
 	private SystemUserSession userSess;
 	private SystemUser user;
-	
+		
 	//Public Methods
+	public void setUserId(String userId)
+	{
+		System.out.println("setting the system user with id " + userId);
+		
+		this.user = userSess.getUserById(Integer.parseInt(userId));
+	}
 	
+	public String getUserId()
+	{
+		System.out.println("getting the system user id");
+		if (user == null)
+			return "";
+		else
+			return Integer.toString(this.user.getId());
+	}
 }
