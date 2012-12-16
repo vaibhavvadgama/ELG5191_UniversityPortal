@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import course.elg5191.university.University.UserRole;
 
 /**
  * @author jmccausl
@@ -20,6 +21,9 @@ public class SystemUser
 	private int id;
 	private Date birthDate;
 	private String name;
+	private UserRole role;
+
+	
 
 	//Public Accessors
 	public Date getBirthDate()
@@ -62,6 +66,14 @@ public class SystemUser
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+	
+	public UserRole getRole() {
+		return role;
+	}
+
+	public void setRole(UserRole role) {
+		this.role = role;
 	}
 
 }

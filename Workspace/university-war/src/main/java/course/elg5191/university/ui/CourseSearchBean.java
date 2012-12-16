@@ -1,23 +1,38 @@
 package course.elg5191.university.ui;
 
+import java.io.IOException;
+import java.util.List;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import course.elg5191.university.beans.entity.*;
+import course.elg5191.university.beans.session.CourseOfferingSession;
 
 /**
  * @author li
  * Backing bean for course search logic
  *
  */
+
+@ManagedBean(name = "courseSearchBean")
+@SessionScoped
 public class CourseSearchBean {
+	//session beans
+	@EJB
+	private CourseOfferingSession courseOfferingSess;
 	
 	//private members
 	private String[] department;
 	private String[] semester;
 	private String[] professor;
 	private String courseNumber;
-	private String hour;
-	private String minute;
+	private List<CourseOffering> courseSearchResult;
 	
 	
+
 	//getters and setters
 	public String[] getDepartment() {
 		return department;
@@ -50,63 +65,35 @@ public class CourseSearchBean {
 	public void setCourseNumber(String courseNumber) {
 		this.courseNumber = courseNumber;
 	}
-
-	public String getHour() {
-		return hour;
-	}
-
-	public void setHour(String hour) {
-		this.hour = hour;
-	}
-
-	public String getMinute() {
-		return minute;
-	}
-
-	public void setMinute(String minute) {
-		this.minute = minute;
-	}
-
 	
-	
+	public List<CourseOffering> getCourseSearchResult() {
+		return courseSearchResult;
+	}
 	
 	//action handlers
+	public void clear(ActionEvent event)
+	{
+		System.out.println("Clear");
+		
+		this.department = null;
+		this.semester = null;
+		this.professor = null;
+		this.courseNumber = "";
+	}
+	
 	public void searchCourse(ActionEvent event)
 	{
-//		searchResults.clear();
-//		
-//		ArrayList<Course> courseResults = new ArrayList<Course>();
-//		ArrayList<CourseOffering> courseOfferingResults = new ArrayList<CourseOffering>();
-//		if (department.length > 0)
-//		{	
-//			for(String dep : department)
-//			{
-//				courseResults.addAll( courseSess.getAllCourseByDepartmentCode(dep));
-//			}
-//			
-//			for(Course course: courseResults)
-//			{
-//				courseOfferingResults.addAll(courseOfferingSess.getCourseOfferingByCourseId(course.getCourseId()));
-//			}
-//
-//		}
-//		
-////		if (semester.length >0)
-////		{
-////			for(String sem :semester)
-////			{
-////				courseOfferingSess.getAllCourseOfferingBySemester(semester)
-////			}
-////		}
-//		searchResults.addAll(courseOfferingResults);
-//		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-//		try {
-//			ec.redirect("CourseSearchResult.xhtml");
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		//return "CourseSearchResult?faces-redirect=true";
+		System.out.println("Search Course");
 		
+		if (courseSearchResult != null)
+		{
+			courseSearchResult.clear();
+			System.out.println("Search Course2");
+		}
+		
+		System.out.println("Search Course2");
+		
+	    this.courseSearchResult =	courseOfferingSess.searchCourseOffering(department, semester, professor, courseNumber);
+		System.out.println(courseSearchResult.size());
 	}
 }

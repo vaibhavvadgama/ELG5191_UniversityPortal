@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.*;
 /**
  * @author jmccausl
  * @version 1.0
@@ -21,7 +22,9 @@ public class CourseOffering
 	private int offeredByProfId;
 	private int createdByAdminId;
 	private int semester;
-	private Date time;
+	private int hour;
+	private int minute;
+	private String day;
 	private String location;
 	private int maxStudents;
 	private boolean isActive;
@@ -29,7 +32,44 @@ public class CourseOffering
 	private Date modifiedDate;
 	private int courseId;
 	
+	@ManyToOne
+	@JoinColumn(name="courseId", nullable=false)
+	private Course course;
+	
+
+
 	//Public Accessors
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+	public int getMinute() {
+		return minute;
+	}
+
+	public void setMinute(int minute) {
+		this.minute = minute;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
+	}
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+	
 	public int getCourseId()
 	{
 		return this.courseId;
@@ -53,11 +93,6 @@ public class CourseOffering
 	public int getSemester()
 	{
 		return this.semester;
-	}
-
-	public Date getTime()
-	{
-		return this.time;
 	}
 
 	public String getLocation()
@@ -121,14 +156,6 @@ public class CourseOffering
 		this.semester = semester;
 	}
 
-	/**
-	 * 
-	 * @param time
-	 */
-	public void setTime(Date time)
-	{
-		this.time = time;
-	}
 	
 	/**
 	 * 

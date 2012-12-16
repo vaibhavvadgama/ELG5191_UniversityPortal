@@ -1,11 +1,15 @@
 package course.elg5191.university.beans.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 
 /**
  * @author jmccausl
@@ -15,6 +19,7 @@ import javax.persistence.Id;
 @Entity
 public class Course {
 
+	
 	//Declarations
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
