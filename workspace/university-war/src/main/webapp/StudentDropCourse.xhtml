@@ -6,10 +6,22 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	
-	<h:head>
-		<title>Drop a Course</title>
-	</h:head>
-	<h:body>
-		
-	</h:body>
+	<center>
+		<h:head>
+			<title>Drop a Course</title>
+		</h:head>
+		<h:body>
+			<ui:include src="Header.xhtml"/>
+			<h2>Drop a Course</h2> 
+			<h:form id="userSelectionForm">
+				<h:panelGrid columns="4" cellpadding="5">
+					<h:outputLabel value="UserId:" style="font-weight:bold"/>
+					<p:inputText id="userId" value="#{studentBean.userId}" />
+					<p:commandButton value="Set User"/>
+				</h:panelGrid>
+			</h:form>
+			
+			
+		</h:body>
+	</center>
 </html>
