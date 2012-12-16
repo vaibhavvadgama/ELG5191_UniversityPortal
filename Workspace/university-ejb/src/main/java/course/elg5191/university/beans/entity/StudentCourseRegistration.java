@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import course.elg5191.university.University.StudentCourseRegistrationStatus;
+
 /**
  * @author jmccausl
  * @version 1.0
@@ -25,6 +27,7 @@ public class StudentCourseRegistration
 	private int approvedUserId;
 	private boolean isExempted;
 	private String exemptionDetails;
+	private StudentCourseRegistrationStatus status;
 	private int obtainedMarks;
 	private String obtainedGrade;
 	private boolean isActive;
@@ -125,6 +128,20 @@ public class StudentCourseRegistration
 	public int getObtainedMarks()
 	{
 		return this.obtainedMarks;
+	}
+	
+	/**
+	 * 
+	 * @param status
+	 */
+	public void setStatus(StudentCourseRegistrationStatus status)
+	{
+		this.status = status;
+	}
+	
+	public StudentCourseRegistrationStatus getStatus()
+	{
+		return this.status;
 	}
 
 	/**

@@ -1,0 +1,10 @@
+drop table course;
+drop table courseoffering;
+drop table exam;
+drop table examsubmission;
+drop table semester;
+drop table student;
+drop table studentapplication;
+drop table studentcourseregistration;
+drop table systemuser;
+drop table courseprerequisite;
