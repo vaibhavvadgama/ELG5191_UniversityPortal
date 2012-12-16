@@ -13,6 +13,7 @@
 		<h:body>
 			<ui:include src="Header.xhtml"/>
 			<h2>Drop a Course</h2> 
+			
 			<h:form id="userSelectionForm">
 				<h:panelGrid columns="4" cellpadding="5">
 					<h:outputLabel value="UserId:" style="font-weight:bold"/>
@@ -21,7 +22,39 @@
 				</h:panelGrid>
 			</h:form>
 			
-			
+			<h:form id="dropCourseSelection">
+				<p:dataTable id="registeredCourses" value="#{studentBean.registeredCourses}" selection="#{studentBean.selectionCoursesToDrop}">
+					<p:column selectionMode="multiple" style="width:18px"/>
+					
+					<p:column headerText="Course Offering Id">
+						
+					</p:column>
+					
+					<p:column headerText="Course Code">
+						
+					</p:column>
+					
+					<p:column headerText="Term">
+						
+					</p:column>
+					
+					<p:column headerText="Year">
+						
+					</p:column>
+					
+					<p:column headerText="Credits">
+						
+					</p:column>
+					
+					<p:column headerText="Time">
+						
+					</p:column>
+					
+					<p:column headerText="Location">
+						
+					</p:column>
+				</p:dataTable>
+			</h:form>
 		</h:body>
 	</center>
 </html>
