@@ -1,10 +1,13 @@
 package course.elg5191.university.beans.session;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import course.elg5191.university.University.StudentCourseRegistrationStatus;
 import course.elg5191.university.beans.entity.StudentCourseRegistration;
 
 /**
@@ -38,6 +41,20 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 	public void addStudentCourseRegistration(StudentCourseRegistration studentCourseRegistration)
 	{
 
+	}
+	
+	@Override
+	public List<StudentCourseRegistration> getStudentCourseRegistrationsByStatus(StudentCourseRegistrationStatus status)
+	{	
+		System.out.println("StudentCourseRegistrationSessionImpl:: getStudentCourseRegistrationByStatus");
+		
+		Query query = em.createQuery("select c from StudentCourseRegistration c where c.status=:status");
+		query = query.setParameter("status", StudentCourseRegistrationStatus.Current);
+		
+		@SuppressWarnings("unchecked")
+		List<StudentCourseRegistration> courses = query.getResultList();
+		
+		return courses;
 	}
 
 }

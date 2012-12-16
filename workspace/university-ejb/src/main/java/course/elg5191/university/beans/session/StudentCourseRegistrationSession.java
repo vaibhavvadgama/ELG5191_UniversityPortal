@@ -1,7 +1,9 @@
 package course.elg5191.university.beans.session;
 
+import java.util.List;
 import javax.ejb.Local;
 import course.elg5191.university.beans.entity.StudentCourseRegistration;
+import course.elg5191.university.University.StudentCourseRegistrationStatus;
 
 /**
  * @author jmccausl
@@ -10,11 +12,13 @@ import course.elg5191.university.beans.entity.StudentCourseRegistration;
  */
 
 @Local
-public interface StudentCourseRegistrationSession {
+public interface StudentCourseRegistrationSession 
+{
 
 	/**
 	 * 
 	 * @param registrationId
+	 * @return
 	 */
 	public StudentCourseRegistration getStudentCourseRegistrationByRegistrationId(int registrationId);
 
@@ -24,4 +28,11 @@ public interface StudentCourseRegistrationSession {
 	 */
 	public void addStudentCourseRegistration(StudentCourseRegistration studentCourseRegistration);
 
+	/**
+	 * 
+	 * @param status
+	 * @return
+	 */
+	public List<StudentCourseRegistration> getStudentCourseRegistrationsByStatus(StudentCourseRegistrationStatus status);
+	
 }

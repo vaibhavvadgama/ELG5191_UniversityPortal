@@ -1,7 +1,5 @@
 package course.elg5191.university.view;
 
-import java.util.Date;
-
 public class CourseInformationData
 {
 	//Declarations

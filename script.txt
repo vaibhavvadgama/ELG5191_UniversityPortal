@@ -12,3 +12,4 @@ insert into app.systemuser values(1,null,'Bob Smith',1);
 insert into app.courseoffering values(1,1,null,null,'Monday',12,1,'site',20,30,null,1,1);
 insert into app.courseoffering values(2,1,null,null,'Friday',12,1,'site',20,30,null,1,1);
 
+insert into app.studentcourseregistration values(1,null,null,null,0,0,null,null,0,0,0,0);

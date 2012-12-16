@@ -21,37 +21,28 @@
 					<p:commandButton value="Set User"/>
 				</h:panelGrid>
 			</h:form>
-			
 			<h:form id="dropCourseSelection">
-				<p:dataTable id="registeredCourses" value="#{studentBean.registeredCourses}" selection="#{studentBean.selectionCoursesToDrop}">
+				<p:dataTable id="registeredCourses" var="course" value="#{studentBean.dropCourseDataModel}" selection="#{studentBean.selectedCourses}">
 					<p:column selectionMode="multiple" style="width:18px"/>
 					
 					<p:column headerText="Course Offering Id">
-						
+						#{course.offeringId}
 					</p:column>
 					
 					<p:column headerText="Course Code">
-						
+						#{course.courseCode}
 					</p:column>
 					
 					<p:column headerText="Term">
-						
+						#{course.term}
 					</p:column>
 					
 					<p:column headerText="Year">
-						
+						#{course.year}
 					</p:column>
 					
-					<p:column headerText="Credits">
-						
-					</p:column>
-					
-					<p:column headerText="Time">
-						
-					</p:column>
-					
-					<p:column headerText="Location">
-						
+					<p:column headerText="Drop Deadline">
+						#{course.dropDeadlineDate}
 					</p:column>
 				</p:dataTable>
 			</h:form>

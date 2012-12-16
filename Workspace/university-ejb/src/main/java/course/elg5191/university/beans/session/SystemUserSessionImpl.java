@@ -30,12 +30,30 @@ public class SystemUserSessionImpl implements SystemUserSession
 	@Override
 	public void addUser(SystemUser user)
 	{
-
+		System.out.println("SystemUserSessionImpl:: addUser");
+		
+		//Step 1: Persist the object
+		em.persist(user);
 	}
 
 	@Override
 	public List<SystemUser> getAllUsers()
 	{
+		System.out.println("SystemUserSessionImpl:: getAllUsers");
+		
+		//Step 1: Define Query
+		Query query = em.createQuery("select s from SystemUser");
+		
+		//Step 2: Obtain the results of the query
+		@SuppressWarnings("unchecked")
+		List<SystemUser> users = query.getResultList();
+		
+		//Step 3: Return the results
+		if (users.size() > 0)
+		{
+			System.out.println("Found users");
+			return users;
+		}
 		return null;
 	}
 
@@ -46,6 +64,22 @@ public class SystemUserSessionImpl implements SystemUserSession
 	@Override
 	public SystemUser getUserByName(String name)
 	{
+		System.out.println("SystemUserSessionImpl:: getUserByName");
+		
+		//Step 1: Define Query
+		Query query = em.createQuery("select s from SystemUser s where s.name=:name");
+		query = query.setParameter("name", name);
+		
+		//Step 2: Obtain the results of the query
+		@SuppressWarnings("unchecked")
+		List<SystemUser> users = query.getResultList();
+		
+		//Step 3: Return the results
+		if (users.size() > 0)
+		{
+			System.out.println("Found user by name");
+			return users.get(0);
+		}
 		return null;
 	}
 
@@ -56,6 +90,22 @@ public class SystemUserSessionImpl implements SystemUserSession
 	@Override
 	public SystemUser getUserById(int id)
 	{
+		System.out.println("SystemUserSessionImpl:: getUserById");
+		
+		//Step 1: Define Query
+		Query query = em.createQuery("select s from SystemUser s where s.id=:id");
+		query = query.setParameter("id", id);
+		
+		//Step 2: Obtain the results of the query
+		@SuppressWarnings("unchecked")
+		List<SystemUser> users = query.getResultList();
+		
+		//Step 3: Return the results
+		if (users.size() > 0)
+		{
+			System.out.println("Found user");
+			return users.get(0);
+		}
 		return null;
 	}
 	
@@ -65,6 +115,7 @@ public class SystemUserSessionImpl implements SystemUserSession
 		Query query = em.createQuery("select c.name from SystemUser c where c.role=:role");
 		query.setParameter("role", UserRole.valueOf("Professor"));
 		
+		@SuppressWarnings("unchecked")
 		List<String> allDepts = query.getResultList();
 		
 		return allDepts;
