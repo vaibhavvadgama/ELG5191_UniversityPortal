@@ -6,7 +6,7 @@ insert into app.course values(3,'1','test','1000',2,null,'phy','test', 1,null);
 
 insert into app.courseprerequisite values(1,1,null,1,null,1,'2');
 
-insert into app.systemuser values(1,null,'Joe');
+insert into app.systemuser values(1,null,'Joe',2);
 
 insert into app.courseoffering values(1,1,null,null,'site',20,null,1,1,null,1);
 insert into app.courseoffering values(2,1,null,null,'site',20,null,1,1,null,1);

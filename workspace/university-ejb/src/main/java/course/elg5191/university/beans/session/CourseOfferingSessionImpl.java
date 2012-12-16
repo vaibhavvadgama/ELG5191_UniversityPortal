@@ -1,5 +1,7 @@
 package course.elg5191.university.beans.session;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -79,6 +81,66 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 		List<CourseOffering> courseOfferings = query.getResultList();
 		
 		return courseOfferings;
+	}
+
+	@Override
+	public List<CourseOffering> searchCourseOffering(String[] department, String[] semester,
+			String[] professor, String courseNumber) {
+		
+		
+		System.out.println("course offering search");
+		StringBuilder queryTxt = new StringBuilder("select co " +
+				"from CourseOffering co "+
+				
+				"where ");
+		
+		if ((department != null) && (department.length != 0))
+		{
+			queryTxt.append("co.course.departmentCode in :department and " );
+		}
+		
+		if ((semester != null) && (semester.length != 0))
+		{
+			queryTxt.append("co.semester in :semester and " );
+		}
+		
+		if ((professor != null) && (professor.length != 0))
+		{
+			queryTxt.append("co.professor in :professor and " );
+		}
+		
+		if (!courseNumber.isEmpty())
+		{
+			queryTxt.append("co.course.courseNumber = '" + courseNumber + "'");
+		}else
+		{
+			queryTxt.delete(queryTxt.length()-5, queryTxt.length()-1);
+		}
+		
+		System.out.println(queryTxt);
+		Query query = em.createQuery(queryTxt.toString());
+
+		if ((department != null) && (department.length != 0))
+		{
+			query.setParameter("department", Arrays.asList(department));
+		}
+		
+		if ((semester != null) && (semester.length != 0))
+		{
+			query.setParameter("semester", Arrays.asList(semester));
+		}
+		
+		if ((professor != null) && (professor.length != 0))
+		{
+			query.setParameter("professor", Arrays.asList(professor));
+		}
+		
+		@SuppressWarnings("unchecked")
+		List<CourseOffering> courseOfferings = new ArrayList();
+		
+		courseOfferings = query.getResultList();
+		return courseOfferings;
+		
 	}
 
 }

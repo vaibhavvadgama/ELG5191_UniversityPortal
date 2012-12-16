@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import course.elg5191.university.beans.entity.SystemUser;
+import course.elg5191.university.University.UserRole;
 
 /**
  * @author jmccausl
@@ -61,11 +62,10 @@ public class SystemUserSessionImpl implements SystemUserSession
 	@Override
 	public List<String> getAllProfs()
 	{
-		Query query = em.createQuery("select c.name from SystemUser c");
+		Query query = em.createQuery("select c.name from SystemUser c where c.role=:role");
+		query.setParameter("role", UserRole.valueOf("Professor"));
 		
 		List<String> allDepts = query.getResultList();
-		
-		System.out.println(allDepts.get(0));
 		
 		return allDepts;
 	}

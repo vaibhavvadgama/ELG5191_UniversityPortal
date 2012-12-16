@@ -32,4 +32,7 @@ public interface CourseOfferingSession {
 	
 	public List<CourseOffering> getCourseOfferingByCourseId(int courseId);
 
+	public List<CourseOffering> searchCourseOffering(String[] department, String[] semester,
+			String[] professor, String courseNumber);
+
 }
