@@ -52,4 +52,11 @@ public class University
 		Professor,
 		Student
 	}
+	
+	public enum Term
+	{
+		Fall,
+		Winter,
+		Summer
+	}
 }

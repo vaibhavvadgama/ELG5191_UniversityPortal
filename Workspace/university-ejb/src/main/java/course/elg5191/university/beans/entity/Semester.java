@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import course.elg5191.university.University.Term;
+
 /**
  * @author jmccausl
  * @version 1.0
@@ -18,7 +20,7 @@ public class Semester
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int semesterId;
-	private int term;
+	private Term term;
 	private int year;
 	private Date beginDate;
 	private Date endDate;
@@ -46,7 +48,7 @@ public class Semester
 		this.semesterId = semesterId;
 	}
 
-	public int getTerm()
+	public Term getTerm()
 	{
 		return this.term;
 	}
@@ -55,7 +57,7 @@ public class Semester
 	 * 
 	 * @param term
 	 */
-	public void setTerm(int term)
+	public void setTerm(Term term)
 	{
 		this.term = term;
 	}
