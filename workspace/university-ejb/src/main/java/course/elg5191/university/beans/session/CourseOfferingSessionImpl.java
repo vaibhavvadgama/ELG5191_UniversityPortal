@@ -96,7 +96,7 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 		
 		if ((department != null) && (department.length != 0))
 		{
-			queryTxt.append("co.course.departmentCode in :department and " );
+			queryTxt.append("co.course.departmentCode in :department and ");
 		}
 		
 		if ((semester != null) && (semester.length != 0))
@@ -114,7 +114,7 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 			queryTxt.append("co.course.courseNumber = '" + courseNumber + "'");
 		}else
 		{
-			queryTxt.delete(queryTxt.length()-5, queryTxt.length()-1);
+			queryTxt.delete(queryTxt.length()-5, queryTxt.length());
 		}
 		
 		System.out.println(queryTxt);

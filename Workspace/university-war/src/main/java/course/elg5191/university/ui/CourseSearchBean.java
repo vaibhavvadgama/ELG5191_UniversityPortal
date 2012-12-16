@@ -87,13 +87,11 @@ public class CourseSearchBean {
 		
 		if (courseSearchResult != null)
 		{
-			courseSearchResult.clear();
-			System.out.println("Search Course2");
+			System.out.println("clear results");
+			courseSearchResult = null;
 		}
 		
-		System.out.println("Search Course2");
-		
-	    this.courseSearchResult =	courseOfferingSess.searchCourseOffering(department, semester, professor, courseNumber);
+	    this.courseSearchResult = courseOfferingSess.searchCourseOffering(department, semester, professor, courseNumber);
 		System.out.println(courseSearchResult.size());
 	}
 }

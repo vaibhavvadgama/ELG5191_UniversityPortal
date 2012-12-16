@@ -22,8 +22,8 @@ public class CourseOffering
 	private int offeredByProfId;
 	private int createdByAdminId;
 	private int semester;
-	private int hour;
-	private int minute;
+	private int hours;
+	private int minutes;
 	private String day;
 	private String location;
 	private int maxStudents;
@@ -39,20 +39,20 @@ public class CourseOffering
 
 
 	//Public Accessors
-	public int getHour() {
-		return hour;
+	public int getHours() {
+		return hours;
 	}
 
-	public void setHour(int hour) {
-		this.hour = hour;
+	public void setHours(int hour) {
+		this.hours = hour;
 	}
 
-	public int getMinute() {
-		return minute;
+	public int getMinutes() {
+		return minutes;
 	}
 
-	public void setMinute(int minute) {
-		this.minute = minute;
+	public void setMinutes(int minute) {
+		this.minutes = minute;
 	}
 
 	public String getDay() {
