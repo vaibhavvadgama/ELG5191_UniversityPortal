@@ -51,7 +51,15 @@
 		
 		<p:column id="name" headerText="Course Name"
 			sortBy="#{courseOffering.course.name}">
-			<h:outputText id="CourseCell" value="#{courseOffering.course.courseCode}" />
+			<!-- h:outputText id="CourseCell" value="a#{courseOffering.course.courseCode}" /-->
+			
+			<p:lightBox iframe="true">  
+			    <h:outputLink value="CourseDetails.xhtml" title="CourseDetails">
+			    	<f:param name="id" value="#{courseOffering.course.courseId}" />
+			        <h:outputText value="#{courseOffering.course.courseCode}"/> 
+			         
+			    </h:outputLink>  
+			</p:lightBox>  
 		</p:column>
 
 		<p:column id="semester" headerText="Semester"

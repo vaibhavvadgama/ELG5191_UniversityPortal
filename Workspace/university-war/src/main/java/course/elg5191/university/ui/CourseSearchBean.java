@@ -99,16 +99,6 @@ public class CourseSearchBean {
 		
 	    List<CourseOffering> results = courseOfferingSess.searchCourseOffering(department, semester, professor, courseNumber);
 	    
-//	    for(CourseOffering offering : results)
-//		{
-//			System.out.println("finding seats remaining");
-//			
-//			int i = studentRegSess.getNumberRegisteredForOffering(offering.getOfferingId());
-//			
-//			System.out.println(i);
-//			offering.setRegStudentCount(i);
-//		}
-	    
 	    this.courseSearchResult = results;
 		System.out.println(courseSearchResult.size());
 		System.out.println(courseSearchResult.get(0).getRegStudentCount());
