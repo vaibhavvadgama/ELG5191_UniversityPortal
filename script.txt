@@ -37,4 +37,4 @@ insert into app.courseoffering values(2,1,null,null,'Friday',12,1,'site',20,30,n
 
 --Adding Student Course Registration
 --RegistrationId  ApprovedUserId  CreatedDate  ExemptionDetails  IsActive  IsExempted  ModifiedDate  ObtainedGrade  ObtainedMarks  OfferedCourseId  Status  StudentId
-insert into app.studentcourseregistration values(1,1,null,null,1,null,null,null,null,1,1,1);
+insert into app.studentcourseregistration values(1,2,null,null,1,null,null,null,null,1,0,2);

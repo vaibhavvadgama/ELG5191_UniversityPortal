@@ -110,12 +110,11 @@ public class StudentBean {
 			CourseInformationData courseInfo = new CourseInformationData();
 			
 			//Step 3.2: Set the Offering ID
-			courseInfo.setOfferingId(currentCourse.getOfferedCourseId());
+			courseInfo.setOfferingId(currentCourse.getOfferingId());
 			
 			//Step 3.3: Get the course offering and semester
-			CourseOffering courseOffering = courseOfferingSess.getCourseOfferingByOfferingId(currentCourse.getOfferedCourseId());
-			Semester semester = semesterSess.getSemesterBySemesterId(courseOffering.getSemester());
-			
+			CourseOffering courseOffering = courseOfferingSess.getCourseOfferingByOfferingId(currentCourse.getOfferingId());
+			Semester semester = semesterSess.getSemesterBySemesterId(courseOffering.getSemesterId());
 			//Step 3.4: Set the Course Code 
 			String courseCode = courseOffering.getCourse().getDepartmentCode();
 			courseCode += " " + courseOffering.getCourse().getCourseNumber();
