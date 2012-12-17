@@ -30,6 +30,16 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 	@Override
 	public StudentCourseRegistration getStudentCourseRegistrationByRegistrationId(int registrationId)
 	{
+		System.out.println("StudentCourseRegistrationSessionImpl:: getStudentCourseRegistrationByRegistrationId");
+		
+		Query query = em.createQuery("select c from StudentCourseRegistration c where c.registrationId=:registrationId");
+		query = query.setParameter("registrationId", registrationId);
+		
+		@SuppressWarnings("unchecked")
+		List<StudentCourseRegistration> courseRegistrations = query.getResultList();
+		
+		if (courseRegistrations.size() > 0)
+			return courseRegistrations.get(0);
 		return null;
 	}
 
@@ -40,7 +50,8 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 	@Override
 	public void addStudentCourseRegistration(StudentCourseRegistration studentCourseRegistration)
 	{
-
+		System.out.println("StudentCourseRegistrationSessionImpl:: addStudentCourseRegistration");
+		em.persist(studentCourseRegistration);
 	}
 	
 	@Override
@@ -52,9 +63,9 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 		query = query.setParameter("status", StudentCourseRegistrationStatus.Current);
 		
 		@SuppressWarnings("unchecked")
-		List<StudentCourseRegistration> courses = query.getResultList();
+		List<StudentCourseRegistration> courseRegistrations = query.getResultList();
 		
-		return courses;
+		return courseRegistrations;
 	}
 
 	@Override

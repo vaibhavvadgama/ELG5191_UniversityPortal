@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import course.elg5191.university.beans.entity.Semester;
+import course.elg5191.university.beans.entity.SystemUser;
 
 /**
  * @author jmccausl
@@ -31,6 +32,19 @@ public class SemesterSessionImpl implements SemesterSession
 	@Override
 	public Semester getSemesterBySemesterId(int semesterId)
 	{
+		System.out.println("SemesterSession:: getSemesterBySemesterId");
+		
+		//Step 1: Define Query
+		Query query = em.createQuery("select s from Semester s where s.semesterId=:semesterId");
+		query = query.setParameter("semesterId", semesterId);
+		
+		//Step 2: Obtain the results of the query
+		@SuppressWarnings("unchecked")
+		List<Semester> semesters = query.getResultList();
+		
+		//Step 3: Return the results
+		if (semesters.size() > 0)
+			return semesters.get(0);
 		return null;
 	}
 
@@ -41,7 +55,8 @@ public class SemesterSessionImpl implements SemesterSession
 	@Override
 	public void addSemester(Semester semester)
 	{
-
+		System.out.println("SemesterSession:: addSemester");
+		em.persist(semester);
 	}
 
 	/**
@@ -61,19 +76,24 @@ public class SemesterSessionImpl implements SemesterSession
 	@Override
 	public Semester getSemesterByEndDate(Date endDate)
 	{
+		System.out.println("SemesterSession:: getSemesterByEndDate");
+		
 		return null;
 	}
 	
 	@Override
 	public List<Semester> getAllSemesters()
 	{
-		List<String> result = new ArrayList<String>();
+		System.out.println("SemesterSession:: getAllSemesters");
+		
+		//Step 1: Define Query
 		Query query = em.createQuery("select s from Semester s");
 		
+		//Step 2: Obtain the results of the query
+		@SuppressWarnings("unchecked")
 		List<Semester> semesters = query.getResultList();
 		
-	
-		
+		//Step 3: Return the results
 		return semesters;
 	}
 

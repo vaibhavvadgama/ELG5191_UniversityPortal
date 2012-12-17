@@ -1,4 +1,4 @@
-package course.elg5191.university.beans.entity;
+	package course.elg5191.university.beans.entity;
 
 import java.util.Date;
 import java.util.List;

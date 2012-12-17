@@ -92,28 +92,28 @@ public class StudentBean {
 		}
 		
 		//Step 2: Obtain all StudentCourseRegistration entries which have the status 'Current'
-		List<StudentCourseRegistration> currentCourses = studentCourseRegistrationSess.getStudentCourseRegistrationsByStatus(StudentCourseRegistrationStatus.Current);
-		if(currentCourses == null)
+		List<StudentCourseRegistration> allCoursesRegistrations = studentCourseRegistrationSess.getStudentCourseRegistrationsByStatus(StudentCourseRegistrationStatus.Current);
+		if(allCoursesRegistrations == null)
 		{
 			System.out.println("no current courses");
 			return null;
 		}
 		else
 		{
-			System.out.println(currentCourses.size() + " current course(s) available");	
+			System.out.println(allCoursesRegistrations.size() + " current course(s) available");	
 		}
 		
 		//Step 3: Populate the CourseInformationDataModel object for the DataTable
 		List<CourseInformationData> courseInformation = new ArrayList<CourseInformationData>();
-		for(StudentCourseRegistration currentCourse : currentCourses)
+		for(StudentCourseRegistration currentCourseRegistration : allCoursesRegistrations)
 		{
 			CourseInformationData courseInfo = new CourseInformationData();
 			
 			//Step 3.2: Set the Offering ID
-			courseInfo.setOfferingId(currentCourse.getOfferingId());
+			courseInfo.setOfferingId(currentCourseRegistration.getOfferingId());
 			
 			//Step 3.3: Get the course offering and semester
-			CourseOffering courseOffering = courseOfferingSess.getCourseOfferingByOfferingId(currentCourse.getOfferingId());
+			CourseOffering courseOffering = courseOfferingSess.getCourseOfferingByOfferingId(currentCourseRegistration.getOfferingId());
 			Semester semester = semesterSess.getSemesterBySemesterId(courseOffering.getSemesterId());
 			//Step 3.4: Set the Course Code 
 			String courseCode = courseOffering.getCourse().getDepartmentCode();

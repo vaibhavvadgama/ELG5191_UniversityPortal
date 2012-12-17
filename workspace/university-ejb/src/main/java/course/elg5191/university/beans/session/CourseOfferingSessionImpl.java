@@ -32,12 +32,17 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 	@Override
 	public CourseOffering getCourseOfferingByOfferingId(int offeringId)
 	{
+		System.out.println("CourseOfferingSession:: getCourseOfferingByOfferingId");
+		
+		//Step 1: Define Query
 		Query query = em.createQuery("select s from CourseOffering s where s.offeringId=:offeringId");
 		query = query.setParameter("offeringId",offeringId);
 		
+		//Step 2: Obtain the results of the query
 		@SuppressWarnings("unchecked")
 		List<CourseOffering> courseOfferings = query.getResultList();
 		
+		//Step 3: Return the results
 		if(courseOfferings.size() > 0)
 			return courseOfferings.get(0);
 		else
@@ -51,6 +56,7 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 	@Override
 	public void addCourseOffering(CourseOffering courseOffering)
 	{
+		System.out.println("CourseOfferingSession:: addCourseOffering");
 		em.persist(courseOffering);
 	}
 
@@ -61,34 +67,43 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 	@Override
 	public List<CourseOffering> getAllCourseOfferingBySemester(int semester)
 	{
+		System.out.println("CourseOfferingSession:: getAllCourseOfferingBySemester");
+		
+		//Step 1: Define Query
 		Query query = em.createQuery("select s from CourseOffering s where s.semester=:semester");
 		query = query.setParameter("semester",semester);
 		
+		//Step 2: Obtain the results of the query
 		@SuppressWarnings("unchecked")
 		List<CourseOffering> courseOfferings = query.getResultList();
 		
+		//Step 3: Return the results
 		return courseOfferings;
-		
 	}
 	
 	@Override
 	public List<CourseOffering> getCourseOfferingByCourseId(int courseId)
 	{
+		System.out.println("CourseOfferingSession:: getCourseOfferingByCourseId");
+		
+		//Step 1: Define Query
 		Query query = em.createQuery("select s from CourseOffering s where s.courseId =:courseId");
 		query = query.setParameter("courseId",courseId);
 		
+		//Step 2: Obtain the results of the query
 		@SuppressWarnings("unchecked")
 		List<CourseOffering> courseOfferings = query.getResultList();
 		
+		//Step 3: Return the results
 		return courseOfferings;
 	}
 
 	@Override
 	public List<CourseOffering> searchCourseOffering(String[] department, String[] semester,
-			String[] professor, String courseNumber) {
+			String[] professor, String courseNumber) 
+	{
+		System.out.println("CourseOfferingSession:: searchCourseOffering");
 		
-		
-		System.out.println("course offering search");
 		StringBuilder queryTxt = new StringBuilder("select co from CourseOffering co where ");
 		
 		if ((department != null) && (department.length != 0))
@@ -133,10 +148,7 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 		}
 		
 		@SuppressWarnings("unchecked")
-		List<CourseOffering> courseOfferings = new ArrayList();
-		
-		courseOfferings = query.getResultList();
-		
+		List<CourseOffering> courseOfferings = query.getResultList();
 		
 		return courseOfferings;
 		

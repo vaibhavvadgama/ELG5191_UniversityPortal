@@ -11,7 +11,7 @@ truncate table systemuser;
 truncate table courseprerequisite;
 
 --Adding Semester Data
---SemesterId  BeginDate  DropdeadlineDate  EndDate  
+--SemesterId  BeginDate  DropdeadlineDate  EndDate  Term  Year 
 insert into app.semester values(1, null, null, null, 1, 2012);
 
 --Adding Course Data
@@ -25,15 +25,16 @@ insert into app.course values(3,'1','test','1000',2,null,'phy','test', 1,null);
 insert into app.courseprerequisite values(1,1,null,1,null,1,'2');
 
 --Adding SystemUser Data
---Id  Birthdate  Name  Role  
+--Id  Birthdate  Name  Role(Admin,Prof,Stud)  
 insert into app.systemuser values(1,null,'Joe',2);
 insert into app.systemuser values(2,null,'Jamieson',2);
 insert into app.systemuser values(3,null,'Bob Smith',1);
+insert into app.systemuser values(4,null,'Stan Smith',0);
 
 --Adding CourseOffering Data
---OfferingId  CourseId  CreatedByAdminId  CreatedDate  Day  Hours  IsActive  Location  MaxStudents  Minutes  ModifiedDate  OfferedByProfId  Semester
-insert into app.courseoffering values(1,1,null,null,'Monday',12,1,'site',20,30,null,1,1);
-insert into app.courseoffering values(2,1,null,null,'Friday',12,1,'site',20,30,null,1,1);
+--OfferingId(int)  CourseId(int)  CourseTime(String)  CreatedByAdminId(int)  CreatedDate(Date)  Day(String)  IsActive(bool)  Location(String)  MaxStudents(int)  ModifiedDate(Date)  OfferedByProfId(int)  SemesterId(int)
+insert into app.courseoffering values(1,1,null,4,null,null,1,'site',20,null,3,1);
+insert into app.courseoffering values(2,1,null,4,null,null,1,'site',20,null,3,1);
 
 --Adding Student Course Registration
 --RegistrationId  ApprovedUserId  CreatedDate  ExemptionDetails  IsActive  IsExempted  ModifiedDate  ObtainedGrade  ObtainedMarks  OfferedCourseId  Status  StudentId

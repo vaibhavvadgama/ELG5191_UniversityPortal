@@ -106,6 +106,8 @@ public class Semester
 
 	public Date getDropDeadlineDate()
 	{
+		if (this.dropDeadlineDate == null)
+			return new Date();
 		return this.dropDeadlineDate;
 	}
 
