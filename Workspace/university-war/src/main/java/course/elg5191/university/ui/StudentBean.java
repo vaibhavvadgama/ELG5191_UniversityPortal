@@ -79,6 +79,17 @@ public class StudentBean {
 		System.out.println("StudentBean:: getSelectedCourses");
 		return this.selectedCourses;
 	}
+
+	public void DropSelectedCourses(ActionEvent event)
+	{
+		System.out.println("StudentBean:: DropSelectedCourses");
+
+		if (selectedCourses != null)
+		{
+			if (selectedCourses.length > 0)
+				System.out.println("StudentBean:: There are courses selected to drop");
+		}
+	}
 	
 	private CourseInformationDataModel buildCourseInformationDataModel()
 	{
@@ -134,4 +145,5 @@ public class StudentBean {
 		
 		return new CourseInformationDataModel(courseInformation);
 	}
+
 }
