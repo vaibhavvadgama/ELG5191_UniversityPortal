@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
 
+import course.elg5191.university.beans.entity.Semester;
 import course.elg5191.university.beans.entity.SystemUser;
 import course.elg5191.university.beans.session.*;
 
@@ -41,14 +42,11 @@ public class CourseBean
 		return courseSess.getAllDepartments();
 	}
 	
-	public List<String> getSemesters()
+	public List<Semester> getSemesters()
 	{
 		return semSess.getAllSemesters();
 	}
 
-	public List<String> getProfessors()
-	{
-		return userSess.getAllProfs();
-	}
+	
 	
 }

@@ -23,5 +23,7 @@ public interface StudentCourseRegistrationSession {
 	 * @param studentCourseRegistration
 	 */
 	public void addStudentCourseRegistration(StudentCourseRegistration studentCourseRegistration);
+	
+    public int getNumberRegisteredForOffering(int offeringId);
 
 }

@@ -1,5 +1,7 @@
 package course.elg5191.university.ui;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -37,5 +39,10 @@ public class UserBean
 			return "";
 		else
 			return Integer.toString(this.user.getId());
+	}
+	
+	public List<SystemUser> getProfessors()
+	{
+		return userSess.getAllProfs();
 	}
 }

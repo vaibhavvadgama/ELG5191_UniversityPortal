@@ -15,7 +15,7 @@
 	<h:panelGrid columns="6">
 		<!-- Semester -->
 		<p:selectCheckboxMenu value="#{courseSearchBean.semester}" label="Semesters" filter="true" filterText="Filter" filterMatchMode="startsWith" panelStyle="width:220px">  
-	        <f:selectItems value="#{courseBean.semesters}" />  
+	        <f:selectItems value="#{courseBean.semesters}" var="sem" itemLabel="#{sem}" itemValue="#{sem.semesterId}"/>  
 	    </p:selectCheckboxMenu>
 	    
 	    <!-- Department -->
@@ -32,7 +32,7 @@
 		    
 		<!-- Professor -->
 	    <p:selectCheckboxMenu value="#{courseSearchBean.professor}" label="Professors" filter="true" filterText="Filter" filterMatchMode="startsWith" style="height:50px, width:100px">  
-	        <f:selectItems value="#{courseBean.professors}" />  
+	        <f:selectItems value="#{userBean.professors}" var="prof" itemLabel="#{prof.name}" itemValue="#{prof.id}" />  
 	    </p:selectCheckboxMenu>
 	    
 
@@ -41,18 +41,51 @@
     </h:panelGrid>
     
  
-			<p:dataTable id="courseSearchResult" value="#{courseSearchBean.courseSearchResult}"
-		paginator="true" paginatorPosition="bottom" rows="10" var="courseOffering">
+		<p:dataTable id="courseSearchResult" value="#{courseSearchBean.courseSearchResult}"
+			paginator="true" paginatorPosition="bottom" rows="10" var="courseOffering">
 
-		<p:column id="location" headerText="Location"
-			sortBy="#{courseOffering.course.name}">
-			<h:outputText id="locationCell" value="#{courseOffering.course.courseName}" />
+		<p:column id="offeringId" headerText="Course Offering Id"
+			sortBy="#{courseOffering.offeringId}">
+			<h:outputText id="OfferingIdCell" value="#{courseOffering.offeringId}" />
 		</p:column>
+		
+		<p:column id="name" headerText="Course Name"
+			sortBy="#{courseOffering.course.name}">
+			<h:outputText id="CourseCell" value="#{courseOffering.course.courseCode}" />
+		</p:column>
+
+		<p:column id="semester" headerText="Semester"
+			sortBy="#{courseOffering.semester}">
+			<h:outputText id="SemesterCell" value="#{courseOffering.semester}" />
+		</p:column>
+		
+		<p:column id="prof" headerText="Professor"
+			sortBy="#{courseOffering.professor.name}">
+			<h:outputText id="ProfessorCell" value="#{courseOffering.professor.name}" />
+		</p:column>
+		
+		<p:column id="time" headerText="Time"
+			sortBy="#{courseOffering.courseTime}">
+			<h:outputText id="timeCell" value="#{courseOffering.courseTime}" />
+		</p:column>
+		
+		<p:column id="day" headerText="Day"
+			sortBy="#{courseOffering.day}">
+			<h:outputText id="dayCell" value="#{courseOffering.day}" />
+		</p:column>
+		
+		<p:column id="location" headerText="Location"
+			sortBy="#{courseOffering.location}">
+			<h:outputText id="locationCell" value="#{courseOffering.location}" />
+		</p:column>
+		
+		<p:column id="seats" headerText="Seats Remaining"
+			sortBy="#{courseOffering.regStudentCount}">
+			<h:outputText id="seatsCell" value="#{courseOffering.regStudentCount}" />
+		</p:column>
+
 	</p:dataTable>
 </h:form>
-
-
-
 
 </body>
 </html>

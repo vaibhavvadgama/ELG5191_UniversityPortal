@@ -40,4 +40,16 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 
 	}
 
+	@Override
+	public int getNumberRegisteredForOffering(int offeringId) {
+		
+		System.out.println(offeringId);
+		Query query = em.createQuery("select count(s) from STUDENTCOURSEREGISTRATION s where s.offeredCourseId = :offeringId");
+		query.setParameter("offeringId", offeringId);
+		
+		System.out.println(query.toString());
+		
+		return ((Number)query.getSingleResult()).intValue();
+	}
+
 }

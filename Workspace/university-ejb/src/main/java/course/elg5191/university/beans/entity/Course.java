@@ -40,7 +40,9 @@ public class Course {
 
 	}
 
-	//Public Accessors
+	//Public Accessor
+	
+	
 	public int getCourseId()
 	{
 		return this.courseId;
@@ -139,5 +141,10 @@ public class Course {
 	public void setModifiedDate(Date modifiedDate)
 	{
 		this.modifiedDate = modifiedDate;
+	}
+	
+	public String getCourseCode()
+	{
+		return this.departmentCode + this.courseNumber;
 	}
 }

@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import course.elg5191.university.University.StudentCourseRegistrationStatus;
 
@@ -22,7 +24,7 @@ public class StudentCourseRegistration
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int registrationId;
-	private int offeredCourseId;
+	private int offeringId;
 	private int studentId;
 	private int approvedUserId;
 	private boolean isExempted;
@@ -33,6 +35,18 @@ public class StudentCourseRegistration
 	private boolean isActive;
 	private Date createdDate;
 	private Date modifiedDate;
+
+	@ManyToOne
+	@JoinColumn(name="offeringId")
+	private CourseOffering courseOffering;
+
+	public CourseOffering getCourseOffering() {
+		return courseOffering;
+	}
+
+	public void setCourseOffering(CourseOffering courseOffering) {
+		this.courseOffering = courseOffering;
+	}
 
 	//Constructor
 	public StudentCourseRegistration()
@@ -55,18 +69,18 @@ public class StudentCourseRegistration
 		this.registrationId = registrationId;
 	}
 
-	public int getOfferedCourseId()
+	public int getOfferingId()
 	{
-		return this.offeredCourseId;
+		return this.offeringId;
 	}
 
 	/**
 	 * 
 	 * @param offeredCourseId
 	 */
-	public void setOfferedCourseId(int offeredCourseId)
+	public void setOfferingId(int offeredCourseId)
 	{
-		this.offeredCourseId = offeredCourseId;
+		this.offeringId = offeredCourseId;
 	}
 
 	public int getStudentId()
