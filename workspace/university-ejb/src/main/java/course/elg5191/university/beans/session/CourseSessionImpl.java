@@ -52,7 +52,13 @@ public class CourseSessionImpl implements CourseSession
 	@Override
 	public Course getCourseByCourseId(int courseId)
 	{
-		return null;
+		Query query = em.createQuery("select c from Course c where c.courseId = :courseId");
+		query.setParameter("courseId", courseId);
+		
+		Course result = (Course)query.getSingleResult();
+
+		
+		return result;
 	}
 
 	/**

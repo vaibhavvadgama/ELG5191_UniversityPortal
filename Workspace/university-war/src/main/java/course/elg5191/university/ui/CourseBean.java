@@ -23,12 +23,10 @@ public class CourseBean
 	//Declarations
 	@EJB
 	private CourseSession courseSess;
-	@EJB
-	private CourseOfferingSession courseOfferingSess;
+
 	@EJB
 	private SemesterSession semSess;
-	@EJB 
-	private SystemUserSession userSess;
+
 
 
 	//Constructor
