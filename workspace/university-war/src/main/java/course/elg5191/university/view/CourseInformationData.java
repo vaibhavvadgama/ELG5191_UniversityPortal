@@ -3,6 +3,7 @@ package course.elg5191.university.view;
 public class CourseInformationData
 {
 	//Declarations
+	private int registrationId;
 	private int offeringId;
 	private String courseCode;
 	private String term;
@@ -10,6 +11,16 @@ public class CourseInformationData
 	private String dropDeadlineDate;
 	
 	//Getters and Setters
+	public void setRegistrationId(int registrationId)
+	{
+		this.registrationId = registrationId;
+	}
+	
+	public int getRegistrationId()
+	{
+		return this.registrationId;
+	}
+	
 	public void setOfferingId(int offeringId)
 	{
 		this.offeringId = offeringId;

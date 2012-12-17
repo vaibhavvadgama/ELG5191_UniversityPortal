@@ -72,7 +72,7 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 	public int getNumberRegisteredForOffering(int offeringId) {
 		
 		System.out.println(offeringId);
-		Query query = em.createQuery("select count(s) from STUDENTCOURSEREGISTRATION s where s.offeredCourseId = :offeringId");
+		Query query = em.createQuery("select count(s) from StudentCourseRegistration s where s.offeredCourseId = :offeringId");
 		query.setParameter("offeringId", offeringId);
 		
 		System.out.println(query.toString());
@@ -80,4 +80,9 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 		return ((Number)query.getSingleResult()).intValue();
 	}
 
+	public void changeStatusOfCourseRegistration(int registrationId, StudentCourseRegistrationStatus status)
+	{
+		StudentCourseRegistration studentCourseRegistration = this.getStudentCourseRegistrationByRegistrationId(registrationId);
+		studentCourseRegistration.setStatus(status);
+	}
 }

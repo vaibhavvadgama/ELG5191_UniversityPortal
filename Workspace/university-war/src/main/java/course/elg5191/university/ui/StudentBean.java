@@ -5,10 +5,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import course.elg5191.university.University.StudentApplicationStatus;
 import course.elg5191.university.University.StudentCourseRegistrationStatus;
 import course.elg5191.university.beans.entity.CourseOffering;
 import course.elg5191.university.beans.entity.Semester;
@@ -84,10 +87,23 @@ public class StudentBean {
 	{
 		System.out.println("StudentBean:: DropSelectedCourses");
 
+		//Step 1: Make sure selected courses is not null
 		if (selectedCourses != null)
 		{
+			//Step 2: Check for any selected courses to drop
 			if (selectedCourses.length > 0)
+			{
 				System.out.println("StudentBean:: There are courses selected to drop");
+				
+				//Step 3: Change the status of each course registration to Dropped
+				for(CourseInformationData courseInformation : this.selectedCourses)
+				{
+					//Step 4: Set the course registration to Dropped
+					studentCourseRegistrationSess.changeStatusOfCourseRegistration(courseInformation.getRegistrationId(), StudentCourseRegistrationStatus.Dropped);
+				}
+				this.courseInformationDataModel = buildCourseInformationDataModel();
+				FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Courses Dropped"));
+			}
 		}
 	}
 	
@@ -119,6 +135,9 @@ public class StudentBean {
 		for(StudentCourseRegistration currentCourseRegistration : allCoursesRegistrations)
 		{
 			CourseInformationData courseInfo = new CourseInformationData();
+			
+			//Step 3.1: Set the Course Registration Id
+			courseInfo.setRegistrationId(currentCourseRegistration.getRegistrationId());
 			
 			//Step 3.2: Set the Offering ID
 			courseInfo.setOfferingId(currentCourseRegistration.getOfferingId());

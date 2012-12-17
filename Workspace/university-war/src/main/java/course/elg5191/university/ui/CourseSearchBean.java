@@ -37,8 +37,6 @@ public class CourseSearchBean {
 	private String courseNumber;
 	private List<CourseOffering> courseSearchResult;
 	
-	
-
 	//getters and setters
 	public String[] getDepartment() {
 		return department;
