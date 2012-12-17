@@ -1,11 +1,8 @@
 package course.elg5191.university.beans.entity;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.*;
 /**
  * @author jmccausl
@@ -21,9 +18,9 @@ public class CourseOffering
 	private int offeringId;
 	private int offeredByProfId;
 	private int createdByAdminId;
-	private int semester;
-	private int hours;
-	private int minutes;
+	private int semesterId;
+//	private int hours;
+//	private int minutes;
 	private String day;
 	private String location;
 	private int maxStudents;
@@ -31,29 +28,69 @@ public class CourseOffering
 	private Date createdDate;
 	private Date modifiedDate;
 	private int courseId;
+	private String courseTime;
 	
 	@ManyToOne
 	@JoinColumn(name="courseId", nullable=false)
 	private Course course;
 	
-
+	@ManyToOne
+	@JoinColumn(name="semesterId", nullable=false)
+	private Semester semester;
+	
+	@ManyToOne
+	@JoinColumn(name="offeredByProfId", nullable=false)
+	private SystemUser professor;
+	
+	@OneToMany(mappedBy="courseOffering", fetch=FetchType.EAGER)
+	private List<StudentCourseRegistration> registeredStudents;
 
 	//Public Accessors
-	public int getHours() {
-		return hours;
+	
+	public List<StudentCourseRegistration> getRegisteredStudents() {
+		return registeredStudents;
 	}
 
-	public void setHours(int hour) {
-		this.hours = hour;
+	public void setRegisteredStudents(
+			List<StudentCourseRegistration> registeredStudents) {
+		this.registeredStudents = registeredStudents;
 	}
 
-	public int getMinutes() {
-		return minutes;
+	public String getCourseTime() {
+		return courseTime;
 	}
 
-	public void setMinutes(int minute) {
-		this.minutes = minute;
+	public void setCourseTime(String courseTime) {
+		this.courseTime = courseTime;
 	}
+	
+	
+	public SystemUser getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(SystemUser professor) {
+		this.professor = professor;
+	}
+	
+	public int getSemesterId() {
+		return semesterId;
+	}
+
+	public void setSemesterId(int semesterId) {
+		this.semesterId = semesterId;
+	}
+	
+	public String getRegStudentCount() {
+		if (this.getRegisteredStudents() != null)
+		{
+			System.out.println("not null");
+			return this.maxStudents - registeredStudents.size() + "/" + this.maxStudents;
+		}
+		return "0/" + this.maxStudents;
+	}
+	
+
 
 	public String getDay() {
 		return day;
@@ -90,7 +127,7 @@ public class CourseOffering
 		return this.createdByAdminId;
 	}
 
-	public int getSemester()
+	public Semester getSemester()
 	{
 		return this.semester;
 	}
@@ -151,7 +188,7 @@ public class CourseOffering
 	 * 
 	 * @param semester
 	 */
-	public void setSemester(int semester)
+	public void setSemester(Semester semester)
 	{
 		this.semester = semester;
 	}

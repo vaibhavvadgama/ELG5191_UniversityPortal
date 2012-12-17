@@ -22,6 +22,9 @@
 				</h:panelGrid>
 			</h:form>
 			<h:form id="dropCourseSelection">
+				<br/>
+				<br/>
+				<p:commandButton value="Update Table" update="registeredCourses"/>
 				<p:dataTable id="registeredCourses" var="course" value="#{studentBean.dropCourseDataModel}" selection="#{studentBean.selectedCourses}">
 					<p:column selectionMode="multiple" style="width:18px"/>
 					

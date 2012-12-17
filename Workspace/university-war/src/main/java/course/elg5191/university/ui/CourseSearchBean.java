@@ -8,8 +8,11 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.persistence.Query;
+
 import course.elg5191.university.beans.entity.*;
 import course.elg5191.university.beans.session.CourseOfferingSession;
+import course.elg5191.university.beans.session.StudentCourseRegistrationSession;
 
 /**
  * @author li
@@ -23,6 +26,9 @@ public class CourseSearchBean {
 	//session beans
 	@EJB
 	private CourseOfferingSession courseOfferingSess;
+	
+	@EJB
+	private StudentCourseRegistrationSession studentRegSess;
 	
 	//private members
 	private String[] department;
@@ -91,7 +97,20 @@ public class CourseSearchBean {
 			courseSearchResult = null;
 		}
 		
-	    this.courseSearchResult = courseOfferingSess.searchCourseOffering(department, semester, professor, courseNumber);
+	    List<CourseOffering> results = courseOfferingSess.searchCourseOffering(department, semester, professor, courseNumber);
+	    
+//	    for(CourseOffering offering : results)
+//		{
+//			System.out.println("finding seats remaining");
+//			
+//			int i = studentRegSess.getNumberRegisteredForOffering(offering.getOfferingId());
+//			
+//			System.out.println(i);
+//			offering.setRegStudentCount(i);
+//		}
+	    
+	    this.courseSearchResult = results;
 		System.out.println(courseSearchResult.size());
+		System.out.println(courseSearchResult.get(0).getRegStudentCount());
 	}
 }

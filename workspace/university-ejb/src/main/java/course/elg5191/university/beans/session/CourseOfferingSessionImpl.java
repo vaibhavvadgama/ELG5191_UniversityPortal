@@ -89,10 +89,7 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 		
 		
 		System.out.println("course offering search");
-		StringBuilder queryTxt = new StringBuilder("select co " +
-				"from CourseOffering co "+
-				
-				"where ");
+		StringBuilder queryTxt = new StringBuilder("select co from CourseOffering co where ");
 		
 		if ((department != null) && (department.length != 0))
 		{
@@ -106,7 +103,7 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 		
 		if ((professor != null) && (professor.length != 0))
 		{
-			queryTxt.append("co.professor in :professor and " );
+			queryTxt.append("co.offeredByProfId in :professor and " );
 		}
 		
 		if (!courseNumber.isEmpty())
@@ -139,6 +136,8 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 		List<CourseOffering> courseOfferings = new ArrayList();
 		
 		courseOfferings = query.getResultList();
+		
+		
 		return courseOfferings;
 		
 	}

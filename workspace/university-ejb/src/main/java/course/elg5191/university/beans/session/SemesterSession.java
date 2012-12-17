@@ -39,6 +39,6 @@ public interface SemesterSession {
 	 */
 	public Semester getSemesterByEndDate(Date endDate);
 	
-	public List<String> getAllSemesters();
+	public List<Semester> getAllSemesters();
 
 }

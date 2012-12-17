@@ -117,5 +117,12 @@ public class Semester
 	{
 		this.dropDeadlineDate = dropDeadlineDate;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return term + " - " + year;
+	}
+	
 
 }
