@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  * @author jmccausl
@@ -34,6 +35,10 @@ public class Course {
 	private Date createdDate;
 	private Date modifiedDate;
 
+	@OneToOne
+	@JoinColumn(name="courseId")
+	private CoursePrerequisite prereq;
+	
 	//Constructor
 	public Course()
 	{
@@ -41,7 +46,13 @@ public class Course {
 	}
 
 	//Public Accessor
-	
+	public CoursePrerequisite getPrereq() {
+		return prereq;
+	}
+
+	public void setPrereq(CoursePrerequisite prereq) {
+		this.prereq = prereq;
+	}
 	
 	public int getCourseId()
 	{

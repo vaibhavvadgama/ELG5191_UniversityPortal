@@ -11,14 +11,25 @@
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 		<title>Course Details</title>
-	</h:head>
-	<h:body style="background:white">
-		<h:outputText value="#{courseDetailsBean.course.courseName}" />
-		<h:panelGrid columns="1">
-	            <h:outputText value="Description" />
-	            <h:outputText value="#{courseDetailsBean.course.description}" />
-	            <h:outputText value="Course Level" />
-	            <h:outputText value="#{courseDetailsBean.course.courseLevel}" />
-	        </h:panelGrid>
+		</h:head>
+		<h:body style="background:white">
+
+					<div style="horizontal-align:left">
+					<h:outputText value="#{courseDetailsBean.course.courseName}" style="font-size:150%"/>
+					
+		<p>
+				            <h:outputText value="Description" style="font-size:120%; Background:gray"/><br/>
+				            <h:outputText value="#{courseDetailsBean.course.description}" />
+				            </p>
+				            <p>
+				            <h:outputText value="Course Level" style="font-size:120%; Background:gray"/><br/>
+				            <h:outputText value="#{courseDetailsBean.course.courseLevel}" />
+				            </p>
+				            <p>
+				             <h:outputText value="Course Prerequisites" style="font-size:120%; Background:gray"/><br/>
+				            <h:outputText value="#{courseDetailsBean.course.prereq.prereqValue}" />
+				            </p>
+
+				    </div>
 	</h:body>
 </html>

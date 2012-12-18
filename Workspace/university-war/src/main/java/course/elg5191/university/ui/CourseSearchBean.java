@@ -83,6 +83,7 @@ public class CourseSearchBean {
 		this.semester = null;
 		this.professor = null;
 		this.courseNumber = "";
+		this.courseSearchResult=null;
 	}
 	
 	public void searchCourse(ActionEvent event)
@@ -95,10 +96,6 @@ public class CourseSearchBean {
 			courseSearchResult = null;
 		}
 		
-	    List<CourseOffering> results = courseOfferingSess.searchCourseOffering(department, semester, professor, courseNumber);
-	    
-	    this.courseSearchResult = results;
-		System.out.println(courseSearchResult.size());
-		System.out.println(courseSearchResult.get(0).getRegStudentCount());
+		courseSearchResult = courseOfferingSess.searchCourseOffering(department, semester, professor, courseNumber);
 	}
 }

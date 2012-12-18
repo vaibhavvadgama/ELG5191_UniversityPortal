@@ -1,0 +1,16 @@
+.SearchInput
+{
+	height: 200;
+	width: 100;
+}
+
+.center
+{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.bottom td
+{
+	vertical-align: bottom;
+}

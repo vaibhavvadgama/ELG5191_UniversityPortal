@@ -113,7 +113,7 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 		
 		if ((semester != null) && (semester.length != 0))
 		{
-			queryTxt.append("co.semester in :semester and " );
+			queryTxt.append("co.semesterId in :semester and " );
 		}
 		
 		if ((professor != null) && (professor.length != 0))

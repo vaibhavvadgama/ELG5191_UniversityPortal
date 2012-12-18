@@ -8,12 +8,11 @@
 			<title>Welcome to the Student Portal</title>
 			<link rel="stylesheet" type="text/css" href="./css/960.css" />
 			<link rel="stylesheet" type="text/css" href="./css/default.css" />
- 			<h:outputStylesheet library="css" name="YOURSTYLES.css" />
+			<link rel="stylesheet" type="text/css" href="./css/student.css" />
 		</h:head>
 		<h:body>
 			<div class= "container_16" id="con-outer">
-
-
+ 
 				<div id="header"  class= "grid_16">			
 					<div id="header-content">
 						<h1>University Portal</h1>
@@ -25,48 +24,48 @@
 
 				<div id="content" class= "grid_14 prefix_1 suffix_1">
 		<h:form id="searchForm">
-			<h:panelGrid columns="6">
+			<h:panelGrid columns="4">
 				<!-- Semester -->
-				<p:selectCheckboxMenu value="#{courseSearchBean.semester}" label="Semesters" filter="true" filterText="Filter" filterMatchMode="startsWith" panelStyle="width:220px">  
+				<p:selectCheckboxMenu value="#{courseSearchBean.semester}" label="Semesters" filter="true" filterText="Filter" filterMatchMode="startsWith">  
 			        <f:selectItems value="#{courseBean.semesters}" var="sem" itemLabel="#{sem}" itemValue="#{sem.semesterId}"/>  
 			    </p:selectCheckboxMenu>
 			    
 			    <!-- Department -->
-				<p:selectCheckboxMenu id="Department" value="#{courseSearchBean.department}" label="Department" filter="true" filterText="Filter" filterMatchMode="startsWith" style="height:50px, width:100px">  
+				<p:selectCheckboxMenu id="Department" value="#{courseSearchBean.department}" label="Department" filter="true" filterText="Filter" filterMatchMode="startsWith">  
 			        <f:selectItems value="#{courseBean.departments}" />  
 			    </p:selectCheckboxMenu>
 			    
 			    <!-- Course Number -->
 				<h:panelGroup>
-			    	<p:outputLabel for="courseNumber">Course Number</p:outputLabel> 
+			    	<p:outputLabel for="courseNumber" style="font-size:15">Course Number</p:outputLabel> 
 			    	<br/>
 			    	<p:inputText id="courseNumber" value="#{courseSearchBean.courseNumber}"></p:inputText>
 		    	</h:panelGroup>
 				    
 				<!-- Professor -->
-			    <p:selectCheckboxMenu value="#{courseSearchBean.professor}" label="Professors" filter="true" filterText="Filter" filterMatchMode="startsWith" style="height:50px, width:100px">  
+			    <p:selectCheckboxMenu value="#{courseSearchBean.professor}" label="Professors" filter="true" filterText="Filter" filterMatchMode="startsWith">  
 			        <f:selectItems value="#{userBean.professors}" var="prof" itemLabel="#{prof.name}" itemValue="#{prof.id}" />  
 			    </p:selectCheckboxMenu>
-			    
-		
-				<p:commandButton value="Clear" actionListener="#{courseSearchBean.clear}" update="searchForm"/>
-				<p:commandButton value="Search" actionListener="#{courseSearchBean.searchCourse}" update="courseSearchResult"/>
-		    </h:panelGrid>
+			</h:panelGrid>
+				
+				<div class="center">
+					<p:commandButton value="Clear" actionListener="#{courseSearchBean.clear}" update="searchForm,courseSearchResult"/>	
+					<p:commandButton value="Search" actionListener="#{courseSearchBean.searchCourse}" update="courseSearchResult"/>
+		    	</div>
+		   
 		    
 		 
 				<p:dataTable id="courseSearchResult" value="#{courseSearchBean.courseSearchResult}"
-					paginator="true" paginatorPosition="bottom" rows="10" var="courseOffering">
+					paginator="true" paginatorPosition="bottom" rows="10" var="courseOffering" style="margin:50px">
 		
-				<p:column id="offeringId" headerText="Course Offering Id"
-					sortBy="#{courseOffering.offeringId}">
+				<p:column id="offeringId" headerText="Course Offering Id">
 					<h:outputText id="OfferingIdCell" value="#{courseOffering.offeringId}" />
 				</p:column>
 				
-				<p:column id="name" headerText="Course Name"
-					sortBy="#{courseOffering.course.name}">
+				<p:column id="name" headerText="Course Name">
 					<!-- h:outputText id="CourseCell" value="a#{courseOffering.course.courseCode}" /-->
 					
-					<p:lightBox iframe="true">  
+					<p:lightBox iframe="true" style="width:600">  
 					    <h:outputLink value="CourseDetails.xhtml" title="CourseDetails">
 					    	<f:param name="id" value="#{courseOffering.course.courseId}" />
 					        <h:outputText value="#{courseOffering.course.courseCode}"/> 
@@ -75,33 +74,27 @@
 					</p:lightBox>  
 				</p:column>
 		
-				<p:column id="semester" headerText="Semester"
-					sortBy="#{courseOffering.semester}">
+				<p:column id="semester" headerText="Semester">
 					<h:outputText id="SemesterCell" value="#{courseOffering.semester}" />
 				</p:column>
 				
-				<p:column id="prof" headerText="Professor"
-					sortBy="#{courseOffering.professor.name}">
+				<p:column id="prof" headerText="Professor">
 					<h:outputText id="ProfessorCell" value="#{courseOffering.professor.name}" />
 				</p:column>
 				
-				<p:column id="time" headerText="Time"
-					sortBy="#{courseOffering.courseTime}">
+				<p:column id="time" headerText="Time">
 					<h:outputText id="timeCell" value="#{courseOffering.courseTime}" />
 				</p:column>
 				
-				<p:column id="day" headerText="Day"
-					sortBy="#{courseOffering.day}">
+				<p:column id="day" headerText="Day">
 					<h:outputText id="dayCell" value="#{courseOffering.day}" />
 				</p:column>
 				
-				<p:column id="location" headerText="Location"
-					sortBy="#{courseOffering.location}">
+				<p:column id="location" headerText="Location">
 					<h:outputText id="locationCell" value="#{courseOffering.location}" />
 				</p:column>
 				
-				<p:column id="seats" headerText="Seats Remaining"
-					sortBy="#{courseOffering.regStudentCount}">
+				<p:column id="seats" headerText="Seats Remaining">
 					<h:outputText id="seatsCell" value="#{courseOffering.regStudentCount}" />
 				</p:column>
 		
