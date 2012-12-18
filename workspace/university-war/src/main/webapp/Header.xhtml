@@ -5,16 +5,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 	
-	<center>
-		<h:head>
-			<title>Student Portal</title>
-		</h:head>
-		<h:body>
-			<h1>Student Portal</h1>
-			<p:button value="Course Search" outcome="StudentCourseSearch"/>
-			<p:button value="Drop Course" outcome="StudentDropCourse"/>
-			<p:button value="Student History" outcome="StudentHistory"/>
-			<p:button value="Student Profile" outcome="StudentInfoManage"/>
-		</h:body>
-	</center>
+	<div id="menu" class= "grid_16">		
+		<ul>
+			<li><a href="StudentWelcome.xhtml">Home</a></li>
+			<li><a href="StudentCourseSearch.xhtml">Course Search</a></li>			
+			<li><a href="StudentHistory.xhtml">Student History</a></li>						
+			<li><a href="StudentInfoManage.xhtml">Student Profile</a></li>				
+		</ul>
+	</div>
 </ui:composition>
