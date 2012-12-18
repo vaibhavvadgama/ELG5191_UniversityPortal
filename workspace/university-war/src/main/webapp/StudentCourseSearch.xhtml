@@ -3,97 +3,125 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-<title>Course Search</title>
+<center>
+		<h:head>
+			<title>Welcome to the Student Portal</title>
+			<link rel="stylesheet" type="text/css" href="./css/960.css" />
+			<link rel="stylesheet" type="text/css" href="./css/default.css" />
+ 			<h:outputStylesheet library="css" name="YOURSTYLES.css" />
+		</h:head>
+		<h:body>
+			<div class= "container_16" id="con-outer">
 
-</h:head>
-<body>
-<ui:include src="Header.xhtml"/>
-<h1>Course Search</h1>
-<h:form id="searchForm">
-	<h:panelGrid columns="6">
-		<!-- Semester -->
-		<p:selectCheckboxMenu value="#{courseSearchBean.semester}" label="Semesters" filter="true" filterText="Filter" filterMatchMode="startsWith" panelStyle="width:220px">  
-	        <f:selectItems value="#{courseBean.semesters}" var="sem" itemLabel="#{sem}" itemValue="#{sem.semesterId}"/>  
-	    </p:selectCheckboxMenu>
-	    
-	    <!-- Department -->
-		<p:selectCheckboxMenu id="Department" value="#{courseSearchBean.department}" label="Department" filter="true" filterText="Filter" filterMatchMode="startsWith" style="height:50px, width:100px">  
-	        <f:selectItems value="#{courseBean.departments}" />  
-	    </p:selectCheckboxMenu>
-	    
-	    <!-- Course Number -->
-		<h:panelGroup>
-	    	<p:outputLabel for="courseNumber">Course Number</p:outputLabel> 
-	    	<br/>
-	    	<p:inputText id="courseNumber" value="#{courseSearchBean.courseNumber}"></p:inputText>
-    	</h:panelGroup>
+
+				<div id="header"  class= "grid_16">			
+					<div id="header-content">
+						<h1>University Portal</h1>
+						<h2>elg5191 project, fall'12</h2>
+					</div>
+				</div>
+				<div id="menu" class= "grid_16">		
+					<ul>
+						<li><a href="StudentWelcome.xhtml">Home</a></li>
+						<li><a href="StudentCourseSearch.xhtml" class="current">Course Search</a></li>			
+						<li><a href="StudentHistory.xhtml">Student History</a></li>						
+						<li><a href="StudentInfoManage.xhtml">Student Profile</a></li>				
+					</ul>
+				</div>
+
+				<div id="content" class= "grid_14 prefix_1 suffix_1">
+		<h:form id="searchForm">
+			<h:panelGrid columns="6">
+				<!-- Semester -->
+				<p:selectCheckboxMenu value="#{courseSearchBean.semester}" label="Semesters" filter="true" filterText="Filter" filterMatchMode="startsWith" panelStyle="width:220px">  
+			        <f:selectItems value="#{courseBean.semesters}" var="sem" itemLabel="#{sem}" itemValue="#{sem.semesterId}"/>  
+			    </p:selectCheckboxMenu>
+			    
+			    <!-- Department -->
+				<p:selectCheckboxMenu id="Department" value="#{courseSearchBean.department}" label="Department" filter="true" filterText="Filter" filterMatchMode="startsWith" style="height:50px, width:100px">  
+			        <f:selectItems value="#{courseBean.departments}" />  
+			    </p:selectCheckboxMenu>
+			    
+			    <!-- Course Number -->
+				<h:panelGroup>
+			    	<p:outputLabel for="courseNumber">Course Number</p:outputLabel> 
+			    	<br/>
+			    	<p:inputText id="courseNumber" value="#{courseSearchBean.courseNumber}"></p:inputText>
+		    	</h:panelGroup>
+				    
+				<!-- Professor -->
+			    <p:selectCheckboxMenu value="#{courseSearchBean.professor}" label="Professors" filter="true" filterText="Filter" filterMatchMode="startsWith" style="height:50px, width:100px">  
+			        <f:selectItems value="#{userBean.professors}" var="prof" itemLabel="#{prof.name}" itemValue="#{prof.id}" />  
+			    </p:selectCheckboxMenu>
+			    
+		
+				<p:commandButton value="Clear" actionListener="#{courseSearchBean.clear}" update="searchForm"/>
+				<p:commandButton value="Search" actionListener="#{courseSearchBean.searchCourse}" update="courseSearchResult"/>
+		    </h:panelGrid>
 		    
-		<!-- Professor -->
-	    <p:selectCheckboxMenu value="#{courseSearchBean.professor}" label="Professors" filter="true" filterText="Filter" filterMatchMode="startsWith" style="height:50px, width:100px">  
-	        <f:selectItems value="#{userBean.professors}" var="prof" itemLabel="#{prof.name}" itemValue="#{prof.id}" />  
-	    </p:selectCheckboxMenu>
-	    
-
-		<p:commandButton value="Clear" actionListener="#{courseSearchBean.clear}" update="searchForm"/>
-		<p:commandButton value="Search" actionListener="#{courseSearchBean.searchCourse}" update="courseSearchResult"/>
-    </h:panelGrid>
-    
- 
-		<p:dataTable id="courseSearchResult" value="#{courseSearchBean.courseSearchResult}"
-			paginator="true" paginatorPosition="bottom" rows="10" var="courseOffering">
-
-		<p:column id="offeringId" headerText="Course Offering Id"
-			sortBy="#{courseOffering.offeringId}">
-			<h:outputText id="OfferingIdCell" value="#{courseOffering.offeringId}" />
-		</p:column>
+		 
+				<p:dataTable id="courseSearchResult" value="#{courseSearchBean.courseSearchResult}"
+					paginator="true" paginatorPosition="bottom" rows="10" var="courseOffering">
 		
-		<p:column id="name" headerText="Course Name"
-			sortBy="#{courseOffering.course.name}">
-			<!-- h:outputText id="CourseCell" value="a#{courseOffering.course.courseCode}" /-->
+				<p:column id="offeringId" headerText="Course Offering Id"
+					sortBy="#{courseOffering.offeringId}">
+					<h:outputText id="OfferingIdCell" value="#{courseOffering.offeringId}" />
+				</p:column>
+				
+				<p:column id="name" headerText="Course Name"
+					sortBy="#{courseOffering.course.name}">
+					<!-- h:outputText id="CourseCell" value="a#{courseOffering.course.courseCode}" /-->
+					
+					<p:lightBox iframe="true">  
+					    <h:outputLink value="CourseDetails.xhtml" title="CourseDetails">
+					    	<f:param name="id" value="#{courseOffering.course.courseId}" />
+					        <h:outputText value="#{courseOffering.course.courseCode}"/> 
+					         
+					    </h:outputLink>  
+					</p:lightBox>  
+				</p:column>
+		
+				<p:column id="semester" headerText="Semester"
+					sortBy="#{courseOffering.semester}">
+					<h:outputText id="SemesterCell" value="#{courseOffering.semester}" />
+				</p:column>
+				
+				<p:column id="prof" headerText="Professor"
+					sortBy="#{courseOffering.professor.name}">
+					<h:outputText id="ProfessorCell" value="#{courseOffering.professor.name}" />
+				</p:column>
+				
+				<p:column id="time" headerText="Time"
+					sortBy="#{courseOffering.courseTime}">
+					<h:outputText id="timeCell" value="#{courseOffering.courseTime}" />
+				</p:column>
+				
+				<p:column id="day" headerText="Day"
+					sortBy="#{courseOffering.day}">
+					<h:outputText id="dayCell" value="#{courseOffering.day}" />
+				</p:column>
+				
+				<p:column id="location" headerText="Location"
+					sortBy="#{courseOffering.location}">
+					<h:outputText id="locationCell" value="#{courseOffering.location}" />
+				</p:column>
+				
+				<p:column id="seats" headerText="Seats Remaining"
+					sortBy="#{courseOffering.regStudentCount}">
+					<h:outputText id="seatsCell" value="#{courseOffering.regStudentCount}" />
+				</p:column>
+		
+			</p:dataTable>
+		</h:form>
+		</div>
 			
-			<p:lightBox iframe="true">  
-			    <h:outputLink value="CourseDetails.xhtml" title="CourseDetails">
-			    	<f:param name="id" value="#{courseOffering.course.courseId}" />
-			        <h:outputText value="#{courseOffering.course.courseCode}"/> 
-			         
-			    </h:outputLink>  
-			</p:lightBox>  
-		</p:column>
-
-		<p:column id="semester" headerText="Semester"
-			sortBy="#{courseOffering.semester}">
-			<h:outputText id="SemesterCell" value="#{courseOffering.semester}" />
-		</p:column>
-		
-		<p:column id="prof" headerText="Professor"
-			sortBy="#{courseOffering.professor.name}">
-			<h:outputText id="ProfessorCell" value="#{courseOffering.professor.name}" />
-		</p:column>
-		
-		<p:column id="time" headerText="Time"
-			sortBy="#{courseOffering.courseTime}">
-			<h:outputText id="timeCell" value="#{courseOffering.courseTime}" />
-		</p:column>
-		
-		<p:column id="day" headerText="Day"
-			sortBy="#{courseOffering.day}">
-			<h:outputText id="dayCell" value="#{courseOffering.day}" />
-		</p:column>
-		
-		<p:column id="location" headerText="Location"
-			sortBy="#{courseOffering.location}">
-			<h:outputText id="locationCell" value="#{courseOffering.location}" />
-		</p:column>
-		
-		<p:column id="seats" headerText="Seats Remaining"
-			sortBy="#{courseOffering.regStudentCount}">
-			<h:outputText id="seatsCell" value="#{courseOffering.regStudentCount}" />
-		</p:column>
-
-	</p:dataTable>
-</h:form>
-
-</body>
+				<div id="footer" class= "grid_16">
+						<div class="grid_4 prefix_6 suffix_6">All rights reserved. &copy; 2012 UOttawa.</div>			
+				</div>
+	
+			</div>
+			
+			
+		</h:body>
+	</center>
 </html>

@@ -8,9 +8,39 @@
 	<center>
 		<h:head>
 			<title>Welcome to the Student Portal</title>
+			<link rel="stylesheet" type="text/css" href="./css/960.css" />
+			<link rel="stylesheet" type="text/css" href="./css/default.css" />
+ 			<h:outputStylesheet library="css" name="YOURSTYLES.css" />
 		</h:head>
 		<h:body>
-			<ui:include src="Header.xhtml"/> 
+			<div class= "container_16" id="con-outer">
+
+
+				<div id="header"  class= "grid_16">			
+					<div id="header-content">
+						<h1>University Portal</h1>
+						<h2>elg5191 project, fall'12</h2>
+					</div>
+				</div>
+				<div id="menu" class= "grid_16">		
+					<ul>
+						<li><a href="StudentWelcome.xhtml" class="current">Home</a></li>
+						<li><a href="StudentCourseSearch.xhtml">Course Search</a></li>			
+						<li><a href="StudentHistory.xhtml">Student History</a></li>						
+						<li><a href="StudentInfoManage.xhtml">Student Profile</a></li>				
+					</ul>
+				</div>
+
+				<div id="content" class= "grid_14 prefix_1 suffix_1">
+					Welcome to the Student Portal!
+				</div>
+			
+				<div id="footer" class= "grid_16">
+						<div class="grid_4 prefix_6 suffix_6">All rights reserved. &copy; 2012 UOttawa.</div>			
+				</div>
+	
+			</div>
+			
 			
 		</h:body>
 	</center>
