@@ -87,7 +87,7 @@ public class SemesterSessionImpl implements SemesterSession
 		System.out.println("SemesterSession:: getAllSemesters");
 		
 		//Step 1: Define Query
-		Query query = em.createQuery("select s from Semester s");
+		Query query = em.createQuery("select s from Semester s where s.endDate > CURRENT_TIMESTAMP");
 		
 		//Step 2: Obtain the results of the query
 		@SuppressWarnings("unchecked")

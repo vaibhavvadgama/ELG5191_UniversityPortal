@@ -13,7 +13,8 @@ truncate table courseprerequisite;
 --Adding Semester Data
 --SemesterId  BeginDate  DropdeadlineDate  EndDate  Term  Year 
 --DateTime yyyy-mm-dd-hh.mm.ss.nnnnnn
-insert into app.semester values(1, null,'2012-12-25-23.59.00.100000', null, 1, 2012);
+insert into app.semester values(1, '2012-09-01-00.00.00.000000','2012-12-25-23.59.00.100000', '2012-12-30-23.59.00.100000', 1, 2012);
+insert into app.semester values(2, '2011-09-01-00.00.00.000000','2011-12-25-23.59.00.100000', '2011-12-30-23.59.00.100000', 1, 2011);
 
 --Adding Course Data
 --CourseId  CourseLevel  CourseName  CourseNumber  CreatedBy  CreatedDate  DepartmentCode  Description  IsActive  ModifiedDate
@@ -39,6 +40,8 @@ insert into app.courseoffering values(2,1,null,4,null,null,1,'CBY',10,null,3,1);
 insert into app.courseoffering values(3,1,null,4,null,null,1,'site',25,null,3,1);
 insert into app.courseoffering values(4,1,null,4,null,null,1,'site',30,null,3,1);
 insert into app.courseoffering values(5,1,null,4,null,null,1,'site',150,null,3,1);
+--this course should not show up in search results because it's a past offering
+insert into app.courseoffering values(6,1,null,4,null,null,1,'site',150,null,3,2);
 
 --Adding Student Course Registration
 --RegistrationId  ApprovedUserId  CreatedDate  ExemptionDetails  IsActive  IsExempted  ModifiedDate  ObtainedGrade  ObtainedMarks  OfferedCourseId  Status  StudentId

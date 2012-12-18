@@ -1,5 +1,8 @@
 package course.elg5191.university.beans.session;
 
+
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -114,6 +117,9 @@ public class CourseOfferingSessionImpl implements CourseOfferingSession
 		if ((semester != null) && (semester.length != 0))
 		{
 			queryTxt.append("co.semesterId in :semester and " );
+		} else
+		{
+			queryTxt.append("co.semester.endDate > CURRENT_TIMESTAMP and ");
 		}
 		
 		if ((professor != null) && (professor.length != 0))
