@@ -3,6 +3,7 @@ package course.elg5191.university.ui;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -97,5 +98,8 @@ public class CourseSearchBean {
 		}
 		
 		courseSearchResult = courseOfferingSess.searchCourseOffering(department, semester, professor, courseNumber);
+		FacesContext context = FacesContext.getCurrentInstance();  
+        
+        context.addMessage(null, new FacesMessage("Search Complete"));  
 	}
 }

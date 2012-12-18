@@ -15,19 +15,20 @@
 		<h:body style="background:white">
 
 			<div style="horizontal-align:left">
-				<h:outputText value="#{courseDetailsBean.course.courseName}" style="font-size:150%"/>
-				
+				<div style="background:#7F8400;  width:100%">
+					<h:outputText value="#{courseDetailsBean.course.departmentCode} #{courseDetailsBean.course.courseNumber} - #{courseDetailsBean.course.courseName}" style="margin-left:10px;font-size:150%"/>
+				</div>
 				<p>
-		            <h:outputText value="Description" style="font-size:120%; Background:gray"/><br/>
-		            <h:outputText value="#{courseDetailsBean.course.description}" />
+		            <h:outputText value="Description" style="font-size:120%"/><br/>
+		            <h:outputText value="#{courseDetailsBean.course.description}" style="margin-left:15px"/>
 	            </p>
 	            <p>
-	            	<h:outputText value="Course Level" style="font-size:120%; Background:gray"/><br/>
-	           		<h:outputText value="#{courseDetailsBean.course.courseLevel}" />
+	            	<h:outputText value="Course Level" style="font-size:120%"/><br/>
+	           		<h:outputText value="#{courseDetailsBean.course.courseLevel}" style="margin-left:15px"/>
 	            </p>
 	            <p>
-	             	<h:outputText value="Course Prerequisites" style="font-size:120%; Background:gray"/><br/>
-	            	<h:outputText value="#{courseDetailsBean.course.prereq.prereqValue}" />
+	             	<h:outputText value="Course Prerequisites" style="font-size:120%"/><br/>
+	            	<h:outputText value="#{courseDetailsBean.course.prereq.prereqValue}" style="margin-left:15px"/>
 	            </p>
 
 		    </div>

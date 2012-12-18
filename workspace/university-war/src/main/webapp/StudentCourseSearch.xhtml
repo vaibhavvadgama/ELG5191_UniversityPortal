@@ -22,8 +22,11 @@
 				
 				<ui:include src="Header.xhtml"/>
 
+				
+
 				<div id="content" class= "grid_14 prefix_1 suffix_1">
 		<h:form id="searchForm">
+		<p:growl id="growl" showDetail="true" sticky="false" />
 			<h:panelGrid columns="4">
 				<!-- Semester -->
 				<p:selectCheckboxMenu value="#{courseSearchBean.semester}" label="Semesters" filter="true" filterText="Filter" filterMatchMode="startsWith">  
@@ -50,7 +53,7 @@
 				
 				<div class="center">
 					<p:commandButton value="Clear" actionListener="#{courseSearchBean.clear}" update="searchForm,courseSearchResult"/>	
-					<p:commandButton value="Search" actionListener="#{courseSearchBean.searchCourse}" update="courseSearchResult"/>
+					<p:commandButton value="Search" actionListener="#{courseSearchBean.searchCourse}" update="growl,courseSearchResult"/>
 		    	</div>
 		   
 		    
