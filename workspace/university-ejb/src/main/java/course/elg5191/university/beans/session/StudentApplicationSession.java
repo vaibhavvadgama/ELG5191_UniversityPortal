@@ -3,6 +3,10 @@ package course.elg5191.university.beans.session;
 import javax.ejb.Local;
 import course.elg5191.university.beans.entity.StudentApplication;
 
+//Tim
+import java.util.List;
+//End
+	
 /**
  * @author jmccausl
  * @version 1.0
@@ -23,5 +27,10 @@ public interface StudentApplicationSession {
 	 * @param studentApplication
 	 */
 	public void addStudentApplication(StudentApplication studentApplication);
+
+	//Tim
+ 	public List<StudentApplication> getStudentApplicationByStudentId(int sid );
+	//End
+	
 
 }

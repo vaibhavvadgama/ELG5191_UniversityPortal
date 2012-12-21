@@ -35,4 +35,8 @@ public interface SystemUserSession {
 	
 	public List<SystemUser> getAllProfs();
 
+ 	//Tim
+ 	public void changeEmailidOfSystemUser(int studentId, String emailid);
+ 	public void changeAddressOfSystemUser(int studentId, String address);
+ 	//End	
 }

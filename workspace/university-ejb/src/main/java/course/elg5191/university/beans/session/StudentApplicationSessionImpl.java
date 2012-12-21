@@ -6,6 +6,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import course.elg5191.university.beans.entity.StudentApplication;
+//Tim
+import java.util.List;
+//End
 
 /**
  * @author jmccausl
@@ -39,5 +42,20 @@ public class StudentApplicationSessionImpl implements StudentApplicationSession
 	{
 
 	}
+	//Tim
+	@Override
+	public List<StudentApplication> getStudentApplicationByStudentId(int sid )
+	{
+		System.out.println("StudentApplicationSessionImpl:: getStudentApplicationByStudentId");
+	 		
+		Query query = em.createQuery("select c from StudentApplication c where c.studentId=:studentId");
+		query = query.setParameter("studentId", sid);
+	 		
+	@SuppressWarnings("unchecked")
+	List<StudentApplication> sa = query.getResultList();
+	 		
+	return sa;
+	}
+	//End	
 
 }

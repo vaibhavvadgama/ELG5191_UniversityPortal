@@ -119,5 +119,18 @@ public class SystemUserSessionImpl implements SystemUserSession
 		
 		return allProfs;
 	}
-
+	//Tim
+ 	public void changeEmailidOfSystemUser(int studentId, String emailid)
+ 	{
+ 		SystemUser systemUser = this.getUserById(studentId);
+ 		systemUser.setEmailid(emailid);
+ 	}
+	//End
+ 	//Tim
+ 	public void changeAddressOfSystemUser(int studentId, String address)
+ 	{
+ 		SystemUser systemUser = this.getUserById(studentId);
+ 		systemUser.setAddress(address);
+ 	}
+	//End
 }

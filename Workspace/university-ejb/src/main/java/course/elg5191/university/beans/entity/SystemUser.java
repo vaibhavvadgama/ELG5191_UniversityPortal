@@ -23,7 +23,28 @@ public class SystemUser
 	private String name;
 	private UserRole role;
 
-	
+	//Tim
+	private String emailid;
+	private String address;
+
+	public void setAddress( String address)
+	{
+		this.address = address;
+	}
+	public void setEmailid( String emailid)
+	{
+	 	this.emailid = emailid;
+	}
+	public String getEmailid()
+	{
+		return this.emailid;
+	}
+	public String getAddress()
+	{
+	 	return this.address;
+	}
+	//End
+
 
 	//Public Accessors
 	public Date getBirthDate()

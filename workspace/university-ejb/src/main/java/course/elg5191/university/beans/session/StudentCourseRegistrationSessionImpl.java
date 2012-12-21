@@ -85,4 +85,20 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 		StudentCourseRegistration studentCourseRegistration = this.getStudentCourseRegistrationByRegistrationId(registrationId);
 		studentCourseRegistration.setStatus(status);
 	}
+	//Tim
+	@Override
+	public List<StudentCourseRegistration> getStudentCourseRegistrationsByStudentId( int studentId )
+	{	
+		System.out.println("StudentCourseRegistrationSessionImpl::getStudentCourseRegistrationByStudentId");
+		
+		Query query = em.createQuery("select c from StudentCourseRegistration c where c.studentId=:studentId");
+		query = query.setParameter("studentId", studentId);
+		
+		@SuppressWarnings("unchecked")
+		List<StudentCourseRegistration> courseRegistrations = query.getResultList();
+		
+		return courseRegistrations;
+	}
+	//End	
+	
 }

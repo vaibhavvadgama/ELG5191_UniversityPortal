@@ -38,4 +38,9 @@ public interface StudentCourseRegistrationSession
 	public List<StudentCourseRegistration> getStudentCourseRegistrationsByStatus(StudentCourseRegistrationStatus status);
 	
 	public void changeStatusOfCourseRegistration(int registrationId, StudentCourseRegistrationStatus status);
+	
+ 	//Tim
+ 	public List<StudentCourseRegistration> getStudentCourseRegistrationsByStudentId( int studentId );
+	//End
+	
 }
