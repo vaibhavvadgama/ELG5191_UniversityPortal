@@ -28,11 +28,11 @@ insert into app.course values(3,'1','test','1000',2,null,'phy','test', 1,null);
 insert into app.courseprerequisite values(1,1,null,1,null,1,'2');
 
 --Adding SystemUser Data
---Id  Birthdate  Name  Role(Admin,Prof,Stud)  
-insert into app.systemuser values(1,null,'Joe',2);
-insert into app.systemuser values(2,null,'Jamieson',2);
-insert into app.systemuser values(3,null,'Bob Smith',1);
-insert into app.systemuser values(4,null,'Stan Smith',0);
+--Id  Address Birthdate  EmailId Name  Role(Admin,Prof,Stud)  
+insert into app.systemuser values(1,'123 Kanata Avenue, Ottawa, ON, Canada',null,'joe@hotmail.com','Joe',2);
+insert into app.systemuser values(2,'128 Kanata Avenue, Ottawa, ON, Canada',null,'jamieson@hotmail.com','Jamieson',2);
+insert into app.systemuser values(3,'111 Kanata Avenue, Ottawa, ON, Canada',null,'bobhotmail.com','Bob Smith',1);
+insert into app.systemuser values(4,'333 Kanata Avenue, Ottawa, ON, Canada',null,'stan@hotmail.com','Stan Smith',0);
 
 --Adding CourseOffering Data
 --OfferingId(int)  CourseId(int)  CourseTime(String)  CreatedByAdminId(int)  CreatedDate(Date)  Day(String)  IsActive(bool)  Location(String)  MaxStudents(int)  ModifiedDate(Date)  OfferedByProfId(int)  SemesterId(int)
@@ -50,3 +50,9 @@ insert into app.studentcourseregistration values(1,4,null,null,1,null,null,null,
 insert into app.studentcourseregistration values(2,4,null,null,1,null,null,null,null,2,0,2);
 insert into app.studentcourseregistration values(3,4,null,null,1,null,null,null,null,3,0,2);
 insert into app.studentcourseregistration values(4,4,null,null,1,null,null,null,null,4,0,2);
+insert into app.studentcourseregistration values(5,4,null,null,1,null,null,null,null,4,0,1);
+insert into app.studentcourseregistration values(6,4,null,null,1,null,null,null,null,4,0,1);
+
+--Adding Student Application
+--RecordID CreateDate Department IsActive ModifiedDate Program Status StudentId Year
+insert into app.studentapplication values(1,null, 'Computer',1, null, 'Phd', 1, 1,2012);
