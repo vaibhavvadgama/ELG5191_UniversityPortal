@@ -1,4 +1,4 @@
---Test by Tim
+--Test by Tim again
 --Erase all Data
 truncate table course;
 truncate table courseoffering;
