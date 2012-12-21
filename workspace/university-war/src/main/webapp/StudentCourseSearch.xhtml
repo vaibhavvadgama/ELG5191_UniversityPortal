@@ -4,6 +4,34 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <center>
+		<h:head>
+			<title>Welcome to the Student Portal</title>
+			<link rel="stylesheet" type="text/css" href="./css/960.css" />
+			<link rel="stylesheet" type="text/css" href="./css/default.css" />
+			<link rel="stylesheet" type="text/css" href="./css/student.css" />
+		</h:head>
+		<h:body>
+			<div class= "container_16" id="con-outer">
+ 
+				<div id="header"  class= "grid_16">			
+					<div id="header-content">
+						<h1>University Portal</h1>
+						<h2>elg5191 project, fall'12</h2>
+					</div>
+		<h:head>
+			<title>Welcome to the Student Portal</title>
+			<link rel="stylesheet" type="text/css" href="./css/960.css" />
+			<link rel="stylesheet" type="text/css" href="./css/default.css" />
+			<link rel="stylesheet" type="text/css" href="./css/student.css" />
+		</h:head>
+		<h:body>
+			<div class= "container_16" id="con-outer">
+ 
+				<div id="header"  class= "grid_16">			
+					<div id="header-content">
+						<h1>University Portal</h1>
+						<h2>elg5191 project, fall'12</h2>
+					</div>
 	<h:head>
 		<title>Welcome to the Student Portal</title>
 		<link rel="stylesheet" type="text/css" href="./css/960.css" />
@@ -95,6 +123,17 @@
 							<h:outputText id="seatsCell" value="#{courseOffering.regStudentCount}" />
 						</p:column>
 				
+				<p:column id="name" headerText="Course Code">
+					<!-- h:outputText id="CourseCell" value="a#{courseOffering.course.courseCode}" /-->
+					
+					<p:lightBox iframe="true" style="width:600">  
+					    <h:outputLink value="CourseDetails.xhtml" title="CourseDetails">
+					    	<f:param name="id" value="#{courseOffering.course.courseId}" />
+					        <h:outputText value="#{courseOffering.course.courseCode}"/> 
+					         
+					    </h:outputLink>  
+					</p:lightBox>  
+				</p:column>
 					</p:dataTable>
 				</h:form>
 			</div>
