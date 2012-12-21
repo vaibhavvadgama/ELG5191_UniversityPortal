@@ -66,7 +66,11 @@ public class StudentBean {
 		System.out.println("StudenBean:: getDropCourseDataModel");
 		
 		if (this.courseInformationDataModel == null)
+		{
+			//Temporary fix until integration with Access Control
+			this.setUserId("2");
 			return new CourseInformationDataModel();
+		}
 		
 		return this.courseInformationDataModel;
 	}

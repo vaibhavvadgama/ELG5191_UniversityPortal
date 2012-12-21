@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import course.elg5191.university.beans.entity.Course;
-import course.elg5191.university.beans.entity.Student;
 
 /**
  * @author jmccausl

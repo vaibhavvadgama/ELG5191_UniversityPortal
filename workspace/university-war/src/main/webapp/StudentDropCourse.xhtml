@@ -8,56 +8,75 @@
 	
 	<center>
 		<h:head>
-			<title>Drop a Course</title>
+			<title>Welcome to the Student Portal</title>
+			<link rel="stylesheet" type="text/css" href="./css/960.css" />
+			<link rel="stylesheet" type="text/css" href="./css/default.css" />
+			<link rel="stylesheet" type="text/css" href="./css/student.css" />
 		</h:head>
 		<h:body>
-			<ui:include src="Header.xhtml"/>
-			<h2>Drop a Course</h2> 
-			<h:form id="dropCourseSelection">
-				<p:messages id="msgs"/>
-				<h:panelGrid columns="4" cellpadding="5">
-					<h:outputLabel value="(Temporary) User Id:" style="font-weight:bold"/>
-					<p:inputText id="userId" value="#{studentBean.userId}" />
-					<p:commandButton value="Set User" update="dropCourseSelection">
-						<f:param name="userId" value = "#{studentBean.userId}"/>
-					</p:commandButton>
-				</h:panelGrid>
-				<br/>
-				<p:dataTable id="registeredCourses" var="course" value="#{studentBean.dropCourseDataModel}" selection="#{studentBean.selectedCourses}">
-					<p:column selectionMode="multiple" style="width:18px"/>
-					
-					<p:column headerText="Course Offering Id">
-						#{course.offeringId}
-					</p:column>
-					
-					<p:column headerText="Course Code">
-						#{course.courseCode}
-					</p:column>
-					
-					<p:column headerText="Term">
-						#{course.term}
-					</p:column>
-					
-					<p:column headerText="Year">
-						#{course.year}
-					</p:column>
-					
-					<p:column headerText="Drop Deadline">
-						#{course.dropDeadlineDate}
-					</p:column>
-				</p:dataTable>
-				<br/>
-				<p:commandButton value="Drop Selected" actionListener="#{studentBean.DropSelectedCourses}" update="dropCourseSelection">
-					<f:ajax execute="dropCourseSelection" render="dropCourseSelection"/>
-				</p:commandButton>
-			</h:form>
-			<p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
-				<f:facet name="start">
-				</f:facet>
-				<f:facet name="complete">
-					<h:outputText value="" />
-				</f:facet>
-			</p:ajaxStatus>
+			<div class= "container_16" id="con-outer">
+				<div id="header"  class= "grid_16">			
+					<div id="header-content">
+						<h1>University Portal</h1>
+						<h2>elg5191 project, fall'12</h2>
+					</div>
+				</div>
+				<ui:include src="Header.xhtml"/>
+				
+				<div id="content" class= "grid_14 prefix_1 suffix_1">
+					<h:form id="dropCourseSelection">
+						<p:messages id="msgs"/>
+						<!--  
+						<h:panelGrid columns="4" cellpadding="5">
+							<h:outputLabel value="(Temporary) User Id:" style="font-weight:bold"/>
+							<p:inputText id="userId" value="#{studentBean.userId}" />
+							<p:commandButton value="Set User" update="dropCourseSelection">
+								<f:param name="userId" value = "#{studentBean.userId}"/>
+							</p:commandButton>
+						</h:panelGrid>
+						-->
+						<br/>
+						<p:dataTable id="registeredCourses" var="course" value="#{studentBean.dropCourseDataModel}" selection="#{studentBean.selectedCourses}">
+							<p:column selectionMode="multiple" style="width:18px"/>
+							
+							<p:column headerText="Course Offering Id">
+								#{course.offeringId}
+							</p:column>
+							
+							<p:column headerText="Course Code">
+								#{course.courseCode}
+							</p:column>
+							
+							<p:column headerText="Term">
+								#{course.term}
+							</p:column>
+							
+							<p:column headerText="Year">
+								#{course.year}
+							</p:column>
+							
+							<p:column headerText="Drop Deadline">
+								#{course.dropDeadlineDate}
+							</p:column>
+						</p:dataTable>
+						<br/>
+						<p:commandButton value="Drop Selected" actionListener="#{studentBean.DropSelectedCourses}" update="dropCourseSelection">
+							<f:ajax execute="dropCourseSelection" render="dropCourseSelection"/>
+						</p:commandButton>
+					</h:form>
+				</div>
+				<p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
+					<f:facet name="start">
+					</f:facet>
+					<f:facet name="complete">
+						<h:outputText value="" />
+					</f:facet>
+				</p:ajaxStatus>
+		
+				<div id="footer" class= "grid_16">
+					<div class="grid_4 prefix_6 suffix_6">All rights reserved. &copy; 2012 UOttawa.</div>			
+				</div>
+			</div>
 		</h:body>
 	</center>
 </html>
