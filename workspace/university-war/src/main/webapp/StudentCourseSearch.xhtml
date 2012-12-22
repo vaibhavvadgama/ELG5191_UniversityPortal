@@ -44,7 +44,7 @@
 						    
 						<!-- Professor -->
 					    <p:selectCheckboxMenu value="#{courseSearchBean.professor}" label="Professors" filter="true" filterText="Filter" filterMatchMode="startsWith">  
-					        <f:selectItems value="#{userBean.professors}" var="prof" itemLabel="#{prof.name}" itemValue="#{prof.id}" />  
+					        <f:selectItems value="#{userBean.professors}" var="prof" itemLabel="#{prof.name}" itemValue="#{prof.userId}" />  
 					    </p:selectCheckboxMenu>
 					</h:panelGrid>
 						
