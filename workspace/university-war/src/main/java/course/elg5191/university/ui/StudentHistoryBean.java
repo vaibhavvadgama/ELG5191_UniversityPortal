@@ -61,7 +61,13 @@ public class StudentHistoryBean {
 		System.out.println("StudentHistory Bean:: getStudentHistoryDataModel");
 		
 		if (this.studentHistoryDataModel == null)
+		{
+			UserSession session = new UserSession();
+		 	user = session.getLoggedUser();
+		 	  
+		 	this.setUserId(String.valueOf(user.getUserId()));
 			return new StudentHistoryDataModel();
+		}
 		
 		return this.studentHistoryDataModel;
 	}

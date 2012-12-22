@@ -67,8 +67,10 @@ public class StudentBean {
 		
 		if (this.courseInformationDataModel == null)
 		{
-			//Temporary fix until integration with Access Control
-			this.setUserId("2");
+			UserSession session = new UserSession();
+		 	user = session.getLoggedUser();
+		 	  
+		 	this.setUserId(String.valueOf(user.getUserId()));
 			return new CourseInformationDataModel();
 		}
 		
