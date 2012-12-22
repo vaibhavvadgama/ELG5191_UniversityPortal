@@ -42,5 +42,9 @@ public interface StudentCourseRegistrationSession
  	//Tim
  	public List<StudentCourseRegistration> getStudentCourseRegistrationsByStudentId( int studentId );
 	//End
+public void registerCourse(); 
+	
+	public boolean checkPrerequisite();
+ 	
 	
 }

@@ -95,6 +95,12 @@
 						<p:column id="seats" headerText="Seats Remaining">
 							<h:outputText id="seatsCell" value="#{courseOffering.regStudentCount}" />
 						</p:column>
+						
+						<p:column id="register" headerText="register">
+                 			<p:commandButton value="Registration" actionListener="#{registrationBean.register}">
+                 				<f:param name="id" value="#{courseOffering.course.courseId}" />
+                 			</p:commandButton>  
+                 		</p:column> 
 				
 					</p:dataTable>
 				</h:form>

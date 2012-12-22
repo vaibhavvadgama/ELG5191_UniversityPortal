@@ -101,4 +101,21 @@ public class StudentCourseRegistrationSessionImpl implements StudentCourseRegist
 	}
 	//End	
 	
+	@Override
+	public void registerCourse() 
+	{
+		System.out.println("registerCourse:: registerCourse");
+		StudentCourseRegistration studentCourseRegistration = new StudentCourseRegistration();
+		//StringBuilder queryTxt = new StringBuilder("insert into STUDENTCOURSEREGISTRATION VALUES(4,4,null,null,1,null,null,null,null,4,0,2)");
+		this.addStudentCourseRegistration(studentCourseRegistration);
+		//Query query = em.persisst(queryTxt.toString());
+		//em.persist();
+	}
+	
+	public boolean checkPrerequisite(){
+		StringBuilder queryTxt = new StringBuilder("select co from CourseOffering co where ");
+		
+		return true;
+	}
+	
 }
