@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/
+DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<f:metadata>
+	<f:viewParam name="course" value="#{editCourse.course}"
+		converter="#{courseConverter}" />
+	<f:event listener="#{editCourse.preRenderView()}" type="preRenderView" />
+</f:metadata>
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="./public/css/960.css" />
+	<link rel="stylesheet" type="text/css" href="./public/css/default.css" />
+	<title>Course list</title>
+</h:head>
+
+<h:body>
+	<div class="container_16" id="con-outer">
+
+
+		<div id="header" class="grid_16">
+			<div id="header-content">
+				<h1>University Portal</h1>
+				<h2>
+					Welcome<h:outputText value="&#160;" />
+					<h:outputText id="loggedUser" value="#{userLogin.user.firstName}" />
+				</h2>
+			</div>
+		</div>
+
+		<div id="menu" class="grid_16">
+			<ul>
+				<li><a href="/university-war/home.xhtml">Home</a></li>
+
+			</ul>
+		</div>
+
+
+
+		<div id="content" class="grid_14 prefix_1 suffix_1">
+			<h:messages />
+
+			<h:form id="courseCreationForm">
+				<h:panelGrid columns="2">
+					<p:outputLabel for="courseName">Course Name</p:outputLabel>
+					<p:inputText id="courseName"
+						value="#{editCourse.course.courseName}" required="true"></p:inputText>
+					<p:outputLabel for="departmentCode">Department Code</p:outputLabel>
+					<p:inputText id="departmentCode"
+						value="#{editCourse.course.departmentCode}" required="true"></p:inputText>
+					<p:outputLabel for="courseNumber">Course Number</p:outputLabel>
+					<p:inputText id="courseNumber"
+						value="#{editCourse.course.courseNumber}" required="true"></p:inputText>
+					<p:outputLabel for="courseLevel">Course Level</p:outputLabel>
+					<p:inputText id="courseLevel"
+						value="#{editCourse.course.courseLevel}" required="true"></p:inputText>
+					<p:outputLabel for="description">Description</p:outputLabel>
+					<p:inputText id="description"
+						value="#{editCourse.course.description}" required="true"></p:inputText>
+					<p:outputLabel for="createdBy">Created By</p:outputLabel>
+					<p:inputText id="createdBy" value="#{editCourse.course.createdBy}"
+						required="true"></p:inputText>
+
+					<h:outputText value="Active *" />
+					<p:selectOneMenu value="#{editCourse.course.isActive}"
+						required="true">
+						<f:selectItem itemLabel="True" itemValue="true" />
+						<f:selectItem itemLabel="False" itemValue="false" />
+					</p:selectOneMenu>
+
+					<p:commandButton id="newCourseButton" value="Update"
+						action="#{editCourse.saveCourse}" ajax="false"
+						update=":coursesTable">
+					</p:commandButton>
+					<p:button outcome="retrieve_courses.xhtml" value="Cancel" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+		<div id="footer" class="grid_16">
+			<div class="grid_4 prefix_6 suffix_6">All rights reserved.
+				&copy; 2012 University of Ottawa.</div>
+		</div>
+
+	</div>
+</h:body>
+</html>

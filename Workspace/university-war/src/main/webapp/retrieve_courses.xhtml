@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="./public/css/960.css" />
+	<link rel="stylesheet" type="text/css" href="./public/css/default.css" />
+	<title>User list</title>
+</h:head>
+
+<h:body>
+	<div class="container_16" id="con-outer">
+		<div id="header" class="grid_16">
+			<div id="header-content">
+				<h1>University Portal</h1>
+				<h2>
+					Welcome<h:outputText value="&#160;" />
+					<h:outputText id="loggedUser" value="#{userLogin.user.firstName}" />
+				</h2>
+			</div>
+		</div>
+
+		<div id="menu" class="grid_16">
+			<ul>
+				<li><a href="/university-war/home.xhtml">Home</a></li>
+			</ul>
+		</div>
+
+		<div id="content" class="grid_14 prefix_1 suffix_1">
+			<div id="message" class="grid_6 prefix_1 suffix_2">
+				<h:messages styleClass="success" />
+			</div>
+
+			<p:dataTable id="coursesTable" value="#{retrieveCourses.courses}"
+				paginator="true" paginatorPosition="bottom" rows="10" var="course">
+				<p:column id="courseId" headerText="Course ID"
+					sortBy="#{course.courseId}">
+					<h:outputText id="courseIdCell" value="#{course.courseId}" />
+				</p:column>
+				<p:column id="courseName" headerText="Course Name"
+					sortBy="#{course.courseName}">
+					<h:outputText id="courseNameCell" value="#{course.courseName}" />
+				</p:column>
+				<p:column id="departmentCode" headerText="Department Code"
+					sortBy="#{course.departmentCode}">
+					<h:outputText id="departmentCodeCell"
+						value="#{course.departmentCode}" />
+				</p:column>
+				<p:column id="courseNumber" headerText="Course Number"
+					sortBy="#{course.courseNumber}">
+					<h:outputText id="courseNumberCell" value="#{course.courseNumber}" />
+				</p:column>
+				<p:column id="courseLevel" headerText="Course Level"
+					sortBy="#{course.courseLevel}">
+					<h:outputText id="courseLevelCell" value="#{course.courseLevel}" />
+				</p:column>
+				<p:column id="description" headerText="Description"
+					sortBy="#{course.description}">
+					<h:outputText id="descriptionCell" value="#{course.description}" />
+				</p:column>
+				<p:column id="createdBy" headerText="Created By"
+					sortBy="#{course.createdBy}">
+					<h:outputText id="createdByCell" value="#{course.createdBy}" />
+				</p:column>
+				<p:column id="isActive" headerText="Active"
+					sortBy="#{course.isActive}">
+					<h:outputText id="isActiveCell" value="#{course.isActive}" />
+				</p:column>
+				<p:column id="createdDate" headerText="Created Date"
+					sortBy="#{course.createdDate}">
+					<h:outputText id="createdDateCell" value="#{course.createdDate}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+				<p:column id="modifiedDate" headerText="Modified Date"
+					sortBy="#{course.modifiedDate}">
+					<h:outputText id="modifiedDateCell" value="#{course.modifiedDate}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+
+				<p:column id="edit" headerText="Edit Course">
+					<h:link outcome="edit_course.xhtml" value="Edit">
+						<f:param name="course" value="#{course.courseId}" />
+					</h:link>
+				</p:column>
+				<p:column id="delete" headerText="Delete Course">
+					<h:link outcome="delete_course.xhtml" value="Delete">
+						<f:param name="course" value="#{course.courseId}" />
+					</h:link>
+				</p:column>
+			</p:dataTable>
+			<br />
+		</div>
+		<div id="footer" class="grid_16">
+			<div class="grid_4 prefix_6 suffix_6">All rights reserved.
+				&copy; 2012 University of Ottawa.</div>
+		</div>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/
+DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+	<f:viewParam name="user" value="#{editUser.user}"
+		converter="#{userConverter}" />
+	<f:event listener="#{editUser.preRenderView()}" type="preRenderView" />
+</f:metadata>
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="./public/css/960.css" />
+	<link rel="stylesheet" type="text/css" href="./public/css/default.css" />
+	<title>User list</title>
+</h:head>
+
+
+<h:body>
+	<div class="container_16" id="con-outer">
+
+
+		<div id="header" class="grid_16">
+			<div id="header-content">
+				<h1>University Portal</h1>
+				<h2>
+					Welcome
+					<h:outputText value="&#160;" />
+					<h:outputText id="loggedUser" value="#{userLogin.user.firstName}" />
+				</h2>
+			</div>
+		</div>
+
+		<h:form>
+			<div id="menu" class="grid_16">
+				<ul>
+					<li><a href="/university-war/home.xhtml" class="current">Home</a></li>
+					<li><a href="/university-war/add_user.xhtml">Add Users</a></li>
+					<li><a href="/university-war/retrieve_users.xhtml">Manage
+							Users</a></li>
+					<li><a href="/university-war/add_course.xhtml">Add Courses</a></li>
+					<li><a href="/university-war/retrieve_courses.xhtml">Manage
+							Courses</a></li>
+					<li><h:commandLink name="logout" value="Logout"
+							action="#{sessionBean.logout()}" /></li>
+				</ul>
+			</div>
+		</h:form>
+
+		<div id="content" class="grid_14 prefix_1 suffix_1">
+
+		</div>
+		<div id="footer" class="grid_16">
+			<div class="grid_4 prefix_6 suffix_6">All rights reserved.
+				&copy; 2012 University of Ottawa.</div>
+		</div>
+	</div>
+</h:body>
+</html>

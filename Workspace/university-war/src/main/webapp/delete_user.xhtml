@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+	<f:viewParam name="user" value="#{deleteUser.user}"
+		converter="#{userConverter}" />
+</f:metadata>
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="./public/css/960.css" />
+	<link rel="stylesheet" type="text/css" href="./public/css/default.css" />
+	<title>User delete</title>
+</h:head>
+
+<h:body>
+	<div class="container_16" id="con-outer">
+
+		<div id="header" class="grid_16">
+			<div id="header-content">
+				<h1>University Portal</h1>
+				<h2>
+					Welcome<h:outputText value="&#160;" />
+					<h:outputText id="loggedUser" value="#{userLogin.user.firstName}" />
+				</h2>
+			</div>
+		</div>
+
+		<div id="menu" class="grid_16">
+			<ul>
+				<li><a href="/university-war/home.xhtml">Home</a></li>
+			</ul>
+		</div>
+
+		<div id="content" class="grid_14 prefix_1 suffix_1">
+			Do you want to delete #{deleteUser.user.firstName}
+			#{deleteUser.user.lastName}?<br />
+			<br />
+			<h:form>
+				<p:commandButton action="#{deleteUser.delete}" value="Delete"
+					ajax="false" update=":semesterTable" />
+				<p:button outcome="retrieve_users.xhtml" value="Cancel" />
+			</h:form>
+		</div>
+		<div id="footer" class="grid_16">
+			<div class="grid_4 prefix_6 suffix_6">All rights reserved.
+				&copy; 2012 University of Ottawa.</div>
+		</div>
+	</div>
+</h:body>
+</html>

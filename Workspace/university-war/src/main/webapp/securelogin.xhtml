@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/
+DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+	<f:viewParam name="user" value="#{userLogin.user}"
+		converter="#{userConverter}" />
+	<f:event listener="#{userLogin.preRenderView()}" type="preRenderView" />
+</f:metadata>
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="./public/css/960.css" />
+	<link rel="stylesheet" type="text/css" href="./public/css/default.css" />
+	<title>User list</title>
+</h:head>
+
+
+<h:body>
+	<div class="container_16" id="con-outer">
+
+
+		<div id="header" class="grid_16">
+			<div id="header-content">
+				<h1>University Portal</h1>
+				<h2>Secure Login System</h2>
+			</div>
+		</div>
+
+		<div id="menu" class="grid_16"></div>
+
+		<div id="content" class="grid_14 prefix_1 suffix_1">
+
+			<h:form id="userLoginForm">
+				<table width="100%">
+					<tr>
+						<td><p:outputLabel for="emailId">Email Id</p:outputLabel> <p:inputText
+								id="emailId" value="#{userLogin.user.emailid}" required="true" /></td>
+					</tr>
+					<tr>
+						<td><p:outputLabel for="password">Password</p:outputLabel> <p:password
+								id="password" value="#{userLogin.user.password}"
+								redisplay="true" feedback="true" required="true" /></td>
+					</tr>
+					<tr>
+						<td><p:commandButton id="loginButton" value="Login"
+								action="#{userLogin.initiateUserLogin}" ajax="false">
+							</p:commandButton></td>
+					</tr>
+				</table>
+
+
+			</h:form>
+
+			<h:messages />
+
+		</div>
+
+
+
+		<div id="footer" class="grid_16">
+			<div class="grid_4 prefix_6 suffix_6">All rights reserved.
+				&copy; 2012 University of Ottawa.</div>
+		</div>
+	</div>
+</h:body>
+</html>

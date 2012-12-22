@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/
+DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+	<f:viewParam name="user" value="#{editUser.user}"
+		converter="#{userConverter}" />
+	<f:event listener="#{editUser.preRenderView()}" type="preRenderView" />
+</f:metadata>
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="./public/css/960.css" />
+	<link rel="stylesheet" type="text/css" href="./public/css/default.css" />
+	<title>User list</title>
+</h:head>
+
+<h:body>
+	<div class="container_16" id="con-outer">
+
+
+		<div id="header" class="grid_16">
+			<div id="header-content">
+				<h1>University Portal</h1>
+				<h2>
+					Welcome<h:outputText value="&#160;" />
+					<h:outputText id="loggedUser" value="#{userLogin.user.firstName}" />
+				</h2>
+			</div>
+		</div>
+
+		<div id="menu" class="grid_16">
+			<ul>
+				<li><a href="/university-war/home.xhtml">Home</a></li>
+			</ul>
+		</div>
+
+		<div id="content" class="grid_14 prefix_1 suffix_1">
+			<h:messages />
+
+			<h:form id="userCreationForm">
+				<h:panelGrid columns="2">
+					<p:outputLabel for="firstName">First Name</p:outputLabel>
+					<p:inputText id="firstName" value="#{editUser.user.firstName}"
+						required="true" />
+					<p:outputLabel for="lastName">Last Name</p:outputLabel>
+					<p:inputText id="lastName" value="#{editUser.user.lastName}"
+						required="true" />
+					<p:outputLabel for="emailId">Email Id</p:outputLabel>
+					<p:inputText id="emailId" value="#{editUser.user.emailid}"
+						required="true" />
+					<p:outputLabel for="password">Password</p:outputLabel>
+					<p:password id="password" value="#{editUser.user.password}"
+						redisplay="true" feedback="true" required="true" />
+
+					<h:outputText value="Active *" />
+					<p:selectOneMenu value="#{editUser.user.isActive}" required="true">
+						<f:selectItem itemLabel="True" itemValue="true" />
+						<f:selectItem itemLabel="False" itemValue="false" />
+					</p:selectOneMenu>
+
+					<h:outputText value="Role *" />
+					<p:selectOneMenu value="#{editUser.user.role}" required="true">
+						<f:selectItem itemLabel="Student" itemValue="student" />
+						<f:selectItem itemLabel="Professor" itemValue="professor" />
+						<f:selectItem itemLabel="Administrator" itemValue="administrator" />
+					</p:selectOneMenu>
+
+					<p:commandButton id="newUserButton" value="Add User"
+						action="#{editUser.saveUser}" ajax="false" update=":usersTable">
+					</p:commandButton>
+					<p:button outcome="home.xhtml" value="Cancel" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+		<div id="footer" class="grid_16">
+			<div class="grid_4 prefix_6 suffix_6">All rights reserved.
+				&copy; 2012 University of Ottawa.</div>
+		</div>
+
+	</div>
+</h:body>
+</html>
