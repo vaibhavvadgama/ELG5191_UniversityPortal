@@ -32,7 +32,7 @@ public class CourseOffering
 	
 	@ManyToOne
 	@JoinColumn(name="courseId", nullable=false)
-	private Course course;
+	private Courses course;
 	
 	@ManyToOne
 	@JoinColumn(name="semesterId", nullable=false)
@@ -40,7 +40,7 @@ public class CourseOffering
 	
 	@ManyToOne
 	@JoinColumn(name="offeredByProfId", nullable=false)
-	private SystemUser professor;
+	private Users professor;
 	
 	@OneToMany(mappedBy="courseOffering", fetch=FetchType.EAGER)
 	private List<StudentCourseRegistration> registeredStudents;
@@ -65,11 +65,11 @@ public class CourseOffering
 	}
 	
 	
-	public SystemUser getProfessor() {
+	public Users getProfessor() {
 		return professor;
 	}
 
-	public void setProfessor(SystemUser professor) {
+	public void setProfessor(Users professor) {
 		this.professor = professor;
 	}
 	
@@ -99,11 +99,11 @@ public class CourseOffering
 	public void setDay(String day) {
 		this.day = day;
 	}
-	public Course getCourse() {
+	public Courses getCourse() {
 		return course;
 	}
 
-	public void setCourse(Course course) {
+	public void setCourse(Courses course) {
 		this.course = course;
 	}
 	

@@ -5,8 +5,8 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import course.elg5191.university.beans.entity.StudentApplication;
-import course.elg5191.university.beans.entity.SystemUser;
-import course.elg5191.university.beans.session.SystemUserSession;
+import course.elg5191.university.beans.entity.Users;
+import course.elg5191.university.beans.session.UsersSession;
 import course.elg5191.university.beans.session.StudentApplicationSession;
 import course.elg5191.university.view.StudentProfileData;
 
@@ -17,12 +17,12 @@ import course.elg5191.university.view.StudentProfileData;
 public class StudentProfileBean {
 	
 	@EJB
-	private SystemUserSession userSess;
+	private UsersSession userSess;
 	@EJB
 	private StudentApplicationSession studentApplication;
 	
 	//Somehow it's not good for using the Class SystemUser here directly
-	private SystemUser user;
+	private Users user;
 	
 	//private int userID = 0; //!!! 0 for INVALID_USER_ID, it should be macro defined somewhere !!!
 	//Student Profile Data
@@ -99,8 +99,8 @@ public class StudentProfileBean {
 			return "";
 		else
 		{
-			System.out.println("StudentProfile Bean:: Getting the system user id " + this.user.getId());
-			return Integer.toString(this.user.getId());
+			System.out.println("StudentProfile Bean:: Getting the system user id " + this.user.getUserId());
+			return Integer.toString(this.user.getUserId());
 			
 		}
 	}
@@ -117,7 +117,7 @@ public class StudentProfileBean {
 		}
 		
 		StudentProfileData spd = new StudentProfileData();
-		spd.setStudentid(Integer.toString(user.getId()));
+		spd.setStudentid(Integer.toString(user.getUserId()));
 		spd.setName(user.getName());
 		spd.setAddress(user.getAddress());
 		spd.setEmailid(user.getEmailid());
@@ -129,7 +129,7 @@ public class StudentProfileBean {
 		
 		/////////////
 		//Step 2: Obtain all StudentCourseRegistration entries by studentId
-				List<StudentApplication> allSA = studentApplication.getStudentApplicationByStudentId(user.getId());
+				List<StudentApplication> allSA = studentApplication.getStudentApplicationByStudentId(user.getUserId());
 				if(allSA == null)
 				{
 					System.out.println("no current student application");

@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import course.elg5191.university.beans.entity.Semester;
-import course.elg5191.university.beans.entity.SystemUser;
+import course.elg5191.university.beans.entity.Users;
 
 /**
  * @author jmccausl

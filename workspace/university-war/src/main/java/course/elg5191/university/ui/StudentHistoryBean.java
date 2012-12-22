@@ -8,11 +8,11 @@ import javax.faces.bean.SessionScoped;
 import course.elg5191.university.beans.entity.CourseOffering;
 import course.elg5191.university.beans.entity.Semester;
 import course.elg5191.university.beans.entity.StudentCourseRegistration;
-import course.elg5191.university.beans.entity.SystemUser;
+import course.elg5191.university.beans.entity.Users;
 import course.elg5191.university.beans.session.CourseOfferingSession;
 import course.elg5191.university.beans.session.SemesterSession;
 import course.elg5191.university.beans.session.StudentCourseRegistrationSession;
-import course.elg5191.university.beans.session.SystemUserSession;
+import course.elg5191.university.beans.session.UsersSession;
 import course.elg5191.university.view.StudentHistoryData;
 import course.elg5191.university.view.StudentHistoryDataModel;
 
@@ -23,7 +23,7 @@ import course.elg5191.university.view.StudentHistoryDataModel;
 @SessionScoped
 public class StudentHistoryBean {
 	@EJB
-	private SystemUserSession userSess;
+	private UsersSession userSess;
 	@EJB
 	private StudentCourseRegistrationSession studentCourseRegistrationSess;
 	@EJB
@@ -32,7 +32,7 @@ public class StudentHistoryBean {
 	private SemesterSession semesterSess;
 	
 	//not good for using SystemUser directly, change later
-	private SystemUser user;
+	private Users user;
 	private StudentHistoryDataModel studentHistoryDataModel;
 	
 	//Public Methods
@@ -53,7 +53,7 @@ public class StudentHistoryBean {
 		if (user == null)
 			return "";
 		else
-			return Integer.toString(this.user.getId());
+			return Integer.toString(this.user.getUserId());
 	}
 	
 	public StudentHistoryDataModel getStudentHistoryDataModel()
@@ -79,7 +79,7 @@ public class StudentHistoryBean {
 		}
 		
 		//Step 2: Obtain all StudentCourseRegistration entries by studentId
-		List<StudentCourseRegistration> allCoursesRegistrations = studentCourseRegistrationSess.getStudentCourseRegistrationsByStudentId(user.getId());
+		List<StudentCourseRegistration> allCoursesRegistrations = studentCourseRegistrationSess.getStudentCourseRegistrationsByStudentId(user.getUserId());
 		if(allCoursesRegistrations == null)
 		{
 			System.out.println("no current courses registered");

@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
 
 import course.elg5191.university.beans.entity.Semester;
-import course.elg5191.university.beans.entity.SystemUser;
+import course.elg5191.university.beans.entity.Users;
 import course.elg5191.university.beans.session.*;
 
 /**
@@ -22,7 +22,7 @@ public class CourseBean
 	
 	//Declarations
 	@EJB
-	private CourseSession courseSess;
+	private CoursesSession courseSess;
 
 	@EJB
 	private SemesterSession semSess;

@@ -6,15 +6,15 @@ import javax.faces.context.FacesContext;
 
 import javax.faces.bean.ManagedBean;
 
-import course.elg5191.university.beans.entity.Course;
-import course.elg5191.university.beans.session.CourseSession;
+import course.elg5191.university.beans.entity.Courses;
+import course.elg5191.university.beans.session.CoursesSession;
 
 @ManagedBean(name = "courseDetailsBean")
 @ViewScoped
 public class CourseDetailsBean {
 	
 	// Properties ---------------------------------------------------------------------------------
-    private Course course;
+    private Courses course;
     private int courseId;
 
     // Services -----------------------------------------------------------------------------------
@@ -22,13 +22,13 @@ public class CourseDetailsBean {
 
 
 	@EJB
-    private CourseSession courseSess;
+    private CoursesSession courseSess;
     
     // Actions ------------------------------------------------------------------------------------
 
     public void init() {
 
-        course = courseSess.getCourseByCourseId(courseId);
+        course = courseSess.getByCourseId(courseId);
     }
 
     // Getters/setters ----------------------------------------------------------------------------
@@ -41,7 +41,7 @@ public class CourseDetailsBean {
 		this.courseId = courseId;
 	}
 
-    public Course getCourse() {
+    public Courses getCourse() {
         return course;
     }
 

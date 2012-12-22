@@ -16,11 +16,11 @@ import course.elg5191.university.University.StudentCourseRegistrationStatus;
 import course.elg5191.university.beans.entity.CourseOffering;
 import course.elg5191.university.beans.entity.Semester;
 import course.elg5191.university.beans.entity.StudentCourseRegistration;
-import course.elg5191.university.beans.entity.SystemUser;
+import course.elg5191.university.beans.entity.Users;
 import course.elg5191.university.beans.session.CourseOfferingSession;
 import course.elg5191.university.beans.session.SemesterSession;
 import course.elg5191.university.beans.session.StudentCourseRegistrationSession;
-import course.elg5191.university.beans.session.SystemUserSession;
+import course.elg5191.university.beans.session.UsersSession;
 import course.elg5191.university.view.CourseInformationData;
 import course.elg5191.university.view.CourseInformationDataModel;
 
@@ -28,7 +28,7 @@ import course.elg5191.university.view.CourseInformationDataModel;
 @SessionScoped
 public class StudentBean {
 	@EJB
-	private SystemUserSession userSess;
+	private UsersSession userSess;
 	@EJB
 	private StudentCourseRegistrationSession studentCourseRegistrationSess;
 	@EJB
@@ -37,7 +37,7 @@ public class StudentBean {
 	private SemesterSession semesterSess;
 	
 	private CourseInformationData[] selectedCourses;
-	private SystemUser user;
+	private Users user;
 	private CourseInformationDataModel courseInformationDataModel;
 	
 	//Public Methods
@@ -58,7 +58,7 @@ public class StudentBean {
 		if (user == null)
 			return "";
 		else
-			return Integer.toString(this.user.getId());
+			return Integer.toString(this.user.getUserId());
 	}
 	
 	public CourseInformationDataModel getDropCourseDataModel()

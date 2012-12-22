@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
 
 import course.elg5191.university.beans.entity.Semester;
-import course.elg5191.university.beans.entity.SystemUser;
+import course.elg5191.university.beans.entity.Users;
 import course.elg5191.university.beans.session.*;
 /**
  * @author jmccausl
@@ -20,7 +20,7 @@ public class RegistrationBean
 {
 	//Declarations
 	@EJB
-	private SystemUserSession userSess;
+	private UsersSession userSess;
 	@EJB
 	private CoursePrerequisiteSession coursePrerequisiteSess;
 	@EJB
@@ -28,8 +28,8 @@ public class RegistrationBean
 	@EJB
 	private StudentCourseRegistrationSession studentCourseRegistrationSess;
 	@EJB
-	private CourseSession courseSess;
-	private SystemUser currentUser;
+	private CoursesSession courseSess;
+	private Users currentUser;
 	private Semester currentSemester;
 	
 	//Constructor

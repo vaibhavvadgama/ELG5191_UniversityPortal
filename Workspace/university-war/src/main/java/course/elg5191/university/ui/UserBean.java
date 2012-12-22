@@ -7,8 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
 
-import course.elg5191.university.beans.session.SystemUserSession;
-import course.elg5191.university.beans.entity.SystemUser;
+import course.elg5191.university.beans.session.UsersSession;
+import course.elg5191.university.beans.entity.Users;
 
 /**
  * @author jmccausl
@@ -21,8 +21,8 @@ public class UserBean
 {
 	//Declarations
 	@EJB
-	private SystemUserSession userSess;
-	private SystemUser user;
+	private UsersSession userSess;
+	private Users user;
 		
 	//Public Methods
 	public void setUserId(String userId)
@@ -38,10 +38,10 @@ public class UserBean
 		if (user == null)
 			return "";
 		else
-			return Integer.toString(this.user.getId());
+			return Integer.toString(this.user.getUserId());
 	}
 	
-	public List<SystemUser> getProfessors()
+	public List<Users> getProfessors()
 	{
 		return userSess.getAllProfs();
 	}

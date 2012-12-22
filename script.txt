@@ -18,9 +18,9 @@ insert into app.semester values(2, '2011-09-01-00.00.00.000000','2011-12-25-23.5
 
 --Adding Course Data
 --CourseId  CourseLevel  CourseName  CourseNumber  CreatedBy  CreatedDate  DepartmentCode  Description  IsActive  ModifiedDate
-insert into app.course values(1,'1','Distributed Systems','5191',2,null,'elg','Learn about distributed systems', 1,null);
-insert into app.course values(2,'1','test','5190',2,null,'elg','test', 1,null);
-insert into app.course values(3,'1','test','1000',2,null,'phy','test', 1,null);
+insert into app.courses values(1,'1','Distributed Systems','5191',2,null,'elg','Learn about distributed systems', 1,null);
+insert into app.courses values(2,'1','test','5190',2,null,'elg','test', 1,null);
+insert into app.courses values(3,'1','test','1000',2,null,'phy','test', 1,null);
 
 --Adding Course Prerequesite Data
 --PrereqId  CourseId  CreatedDate  IsActive  ModifiedDate  PrereqType  PrereqValue
@@ -28,10 +28,12 @@ insert into app.courseprerequisite values(1,1,null,1,null,1,'2');
 
 --Adding SystemUser Data
 --Id  Address Birthdate  EmailId Name  Role(Admin,Prof,Stud)  
-insert into app.systemuser values(1,'123 Kanata Avenue, Ottawa, ON, Canada',null,'joe@hotmail.com','Joe',2);
-insert into app.systemuser values(2,'128 Kanata Avenue, Ottawa, ON, Canada',null,'jamieson@hotmail.com','Jamieson',2);
-insert into app.systemuser values(3,'111 Kanata Avenue, Ottawa, ON, Canada',null,'bobhotmail.com','Bob Smith',1);
-insert into app.systemuser values(4,'333 Kanata Avenue, Ottawa, ON, Canada',null,'stan@hotmail.com','Stan Smith',0);
+insert into app.users values(1,'123 Kanata Avenue, Ottawa, ON, Canada',null,null,'joe@hotmail.com','Joe',1,'Smith',null,'-7f70261aa55cfc2bd97e063feb9acfe134661c37', 'administrator', '1356119419119');
+insert into app.users values(2,'test',null, '2012-12-21 19:41:57.519', 'li@a.com', 'li' 1, 'wang',null,'-3b141d73c326f11dd863cc691b9687a00f477e25', 'student', '1356136917525');
+
+insert into app.users values(3,'test',null, '2012-12-21 19:41:57.519', 'dan@hotmail.com', 'Dan' 1, 'Ionescu',null,'2ef5aa7af413ce9ce502e277d68961cec1612384','professor', '1356137441215');
+
+
 
 --Adding CourseOffering Data
 --OfferingId(int)  CourseId(int)  CourseTime(String)  CreatedByAdminId(int)  CreatedDate(Date)  Day(String)  IsActive(bool)  Location(String)  MaxStudents(int)  ModifiedDate(Date)  OfferedByProfId(int)  SemesterId(int)

@@ -6,5 +6,5 @@ drop table semester;
 drop table student;
 drop table studentapplication;
 drop table studentcourseregistration;
-drop table systemuser;
+drop table users;
 drop table courseprerequisite;
