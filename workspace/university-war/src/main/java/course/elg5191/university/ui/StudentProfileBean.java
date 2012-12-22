@@ -154,8 +154,17 @@ public class StudentProfileBean {
 
 public StudentProfileData getStudentProfileData()
 {
-	if (this.studentProfileData == null)
-		return new StudentProfileData();
+	
+		
+		if (this.studentProfileData == null)
+		{
+			UserSession session = new UserSession();
+		 	user = session.getLoggedUser();
+		 	  
+		 	this.setUserId(String.valueOf(user.getUserId()));
+		 	return new StudentProfileData();
+		}
+		
 	
 	return this.studentProfileData;
 }
